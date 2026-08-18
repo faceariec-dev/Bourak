@@ -4,963 +4,1016 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Music Bar Bourák – hudba, zábava a sport</title>
-<meta name="description" content="Music Bar Bourák: živá hudba, DJ párty, koktejly, sportovní přenosy a privátní rezervace. Praha 11 – Chodov.">
+<meta name="description" content="Music Bar Bourák: živá hudba, DJ párty, chytré kvízy, koktejly a sportovní přenosy. Praha 11 – Chodov.">
 <style>
 @font-face {
-  font-family:'Lobster';
-  src:url('assets/fonts/lobster-latin.woff2') format('woff2');
+  font-family:'Archivo Black';
+  src:url('assets/fonts/archivo-black-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122;
   font-weight:400;
   font-style:normal;
   font-display:swap;
 }
 @font-face {
-  font-family:'Yellowtail';
-  src:url('assets/fonts/yellowtail-latin.woff2') format('woff2');
+  font-family:'Archivo Black';
+  src:url('assets/fonts/archivo-black-latin-ext.woff2') format('woff2');
+  unicode-range:U+0100-02BA,U+02BD-02CC,U+02CE-02FF,U+1E00-1EFF;
   font-weight:400;
   font-style:normal;
   font-display:swap;
 }
+
 :root {
+  --bg:#14100e;
+  --bg-soft:#1a1512;
+  --surface:#221b17;
+  --surface-2:#2a2119;
+  --line:#372c22;
+  --paper:#f6efe8;
+  --muted:#b6a89c;
   --orange:#f2552c;
-  --ink:#111;
-  --muted:#55575d;
-  --line:#eee7e2;
-  --bg:#fff;
-  --max:778px;
+  --orange-deep:#c53d1f;
+  --ink:#1a1310;
+  --card-light:#fbf6f1;
+  --line-light:#e9ddd0;
+  --muted-ink:#6c5f53;
+  --radius-lg:22px;
+  --radius-md:16px;
+  --pad-y:96px;
+  --maxw:1180px;
 }
 * { box-sizing:border-box; }
 html {
   scroll-behavior:smooth;
-  scroll-padding-top:88px;
+  scroll-padding-top:92px;
 }
 body {
   margin:0;
-  background:#fff;
-  color:var(--ink);
+  background:var(--bg);
+  color:var(--paper);
   font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
   -webkit-font-smoothing:antialiased;
 }
 a { color:inherit; text-decoration:none; }
 img { display:block; max-width:100%; }
-.page {
-  width:min(100%, var(--max));
+h1,h2,h3 { font-family:'Archivo Black', Arial, sans-serif; font-weight:400; }
+.wrap {
+  width:100%;
+  max-width:var(--maxw);
   margin:0 auto;
-  background:#fff;
-  overflow:hidden;
+  padding:0 28px;
 }
-.container {
-  width:704px;
-  max-width:calc(100% - 64px);
-  margin:0 auto;
+.section {
+  padding:var(--pad-y) 0;
 }
-.header {
-  height:76px;
-  position:sticky;
-  top:0;
-  z-index:40;
-  background:rgba(255,255,255,.96);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid #eee8e4;
-}
-.header-inner {
-  height:76px;
-  display:flex;
+.section-alt { background:var(--bg-soft); }
+.eyebrow {
+  display:inline-flex;
   align-items:center;
-  gap:24px;
+  gap:8px;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--orange);
+  margin:0 0 10px;
 }
+.section-head {
+  max-width:640px;
+  margin:0 0 40px;
+}
+.section-head h2 {
+  margin:0;
+  font-size:clamp(28px,3.4vw,42px);
+  line-height:1.06;
+  letter-spacing:-.01em;
+}
+.section-head p {
+  margin:14px 0 0;
+  font-size:16px;
+  line-height:1.5;
+  color:var(--muted);
+}
+.center { text-align:center; margin-left:auto; margin-right:auto; }
+
+/* Buttons */
+.btn {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  height:56px;
+  padding:0 28px;
+  border-radius:14px;
+  font-size:15px;
+  font-weight:800;
+  white-space:nowrap;
+  border:2px solid transparent;
+  cursor:pointer;
+}
+.btn-primary { background:var(--orange); color:#fff; }
+.btn-primary:hover { background:var(--orange-deep); }
+.btn-outline {
+  background:transparent;
+  color:var(--paper);
+  border-color:rgba(246,239,232,.35);
+}
+.btn-outline:hover { border-color:var(--paper); }
+.btn-light {
+  background:var(--ink);
+  color:var(--card-light);
+}
+.btn-block { width:100%; }
+
+/* Logo wordmark */
 .logo {
   display:flex;
+  flex-direction:column;
+  line-height:1;
+  gap:3px;
 }
-.logo svg {
-  width:124px;
-  height:auto;
+.logo-cap {
+  font-size:10.5px;
+  font-weight:800;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.logo-main {
+  font-family:'Archivo Black', Arial, sans-serif;
+  font-size:23px;
+  color:var(--paper);
+  position:relative;
+  padding-bottom:6px;
+}
+.logo-main::after {
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:34px;
+  height:4px;
+  border-radius:4px;
+  background:var(--orange);
+}
+
+/* Header */
+.header {
+  position:sticky;
+  top:0;
+  z-index:50;
+  height:80px;
+  display:flex;
+  align-items:center;
+  background:rgba(20,16,14,.9);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.header .wrap {
+  display:flex;
+  align-items:center;
+  gap:32px;
+  width:100%;
 }
 .nav {
   margin-left:auto;
   display:flex;
   align-items:center;
-  gap:25px;
-  font-size:12px;
-  font-weight:850;
+  gap:30px;
+  font-size:14px;
+  font-weight:700;
+  color:var(--muted);
 }
-.nav a {
-  position:relative;
-  height:76px;
-  display:flex;
-  align-items:center;
-}
-.nav a.active {
-  color:var(--orange);
-}
-.nav a.active::after {
-  content:"";
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:0;
-  width:22px;
-  height:3px;
-  margin:auto;
-  border-radius:20px;
-  background:var(--orange);
-}
-.header-buttons {
-  display:flex;
-  gap:10px;
-  margin-left:6px;
-}
-.btn {
-  height:37px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  padding:0 14px;
-  border-radius:7px;
-  font-size:12px;
-  font-weight:950;
-  white-space:nowrap;
-  border:1px solid transparent;
-}
-.btn-primary {
-  background:var(--orange);
-  color:white;
-}
-.btn-outline {
-  background:white;
-  color:#111;
-  border-color:#d8d0ca;
-}
+.nav a:hover, .nav a.active { color:var(--paper); }
+.header-cta { display:flex; }
+.header-cta .btn { height:44px; padding:0 20px; font-size:13.5px; }
 
+/* Hero */
 .hero {
-  position:relative;
-  min-height:310px;
-  border-bottom:1px solid #f0ebe7;
-  overflow:hidden;
+  padding:64px 0 80px;
+  background:
+    radial-gradient(circle at 15% 0%, rgba(242,85,44,.14), transparent 45%),
+    var(--bg);
+  border-bottom:1px solid var(--line);
+}
+.hero .wrap {
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:56px;
+  align-items:center;
+}
+.hero-copy h1 {
+  margin:0;
+  font-size:clamp(38px,5vw,58px);
+  line-height:1.02;
+  letter-spacing:-.01em;
+}
+.hero-copy h1 .accent { color:var(--orange); }
+.hero-copy p.lead {
+  margin:22px 0 0;
+  font-size:18px;
+  line-height:1.55;
+  color:var(--muted);
+  max-width:480px;
+}
+.hero-actions {
+  display:flex;
+  gap:16px;
+  margin-top:34px;
+  flex-wrap:wrap;
+}
+.chips {
+  margin:38px 0 0;
+  padding:0;
+  list-style:none;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.chips li {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:13.5px;
+  font-weight:700;
+  color:var(--paper);
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:30px;
+  padding:9px 16px 9px 10px;
+}
+.chips .ico {
+  width:24px;
+  height:24px;
+  border-radius:50%;
+  background:rgba(242,85,44,.16);
+  color:var(--orange);
+  display:grid;
+  place-items:center;
+  font-size:13px;
+  flex:0 0 auto;
 }
 .hero-visual {
-  position:absolute;
-  top:0;
-  right:0;
-  width:443px;
-  height:365px;
-  z-index:1;
+  position:relative;
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  aspect-ratio:4/5;
+  border:1px solid var(--line);
+  box-shadow:0 30px 60px -20px rgba(0,0,0,.6);
 }
 .hero-visual img {
   width:100%;
   height:100%;
   object-fit:cover;
+  object-position:center 30%;
 }
-.hero-copy {
-  position:relative;
+.hero-visual::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top, rgba(15,11,9,.55), transparent 45%);
+}
+.hero-badge {
+  position:absolute;
+  left:18px;
+  bottom:18px;
   z-index:2;
-  width:380px;
-  padding:29px 0 34px;
-}
-.hero-copy h1 {
-  margin:0;
-  font-size:38px;
-  line-height:1.04;
-  letter-spacing:-.052em;
-  font-weight:950;
-}
-.hero-copy h1 span {
-  color:var(--orange);
-}
-.features {
-  margin:23px 0 0;
-  padding:0;
-  list-style:none;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:13px 28px;
-}
-.features li {
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-size:13px;
-  line-height:1.15;
-  color:#202024;
-  font-weight:800;
-}
-.ico {
-  width:21px;
-  height:21px;
-  border-radius:7px;
-  background:#fff3ed;
-  border:1px solid #ffcdbd;
-  color:var(--orange);
-  display:grid;
-  place-items:center;
-  font-size:12px;
-  flex:0 0 auto;
-}
-.hero-actions {
-  display:flex;
-  gap:14px;
-  margin-top:25px;
-}
-.hero-actions .btn {
-  height:42px;
-  min-width:132px;
-  border-radius:7px;
-}
-
-.section {
-  padding:31px 0 0;
-}
-.section-title {
-  text-align:center;
-  margin-bottom:18px;
-}
-.section-title h2 {
-  margin:0;
-  font-size:22px;
-  line-height:1.05;
-  letter-spacing:-.035em;
-  font-weight:950;
-}
-.section-title p {
-  margin:8px auto 0;
-  color:#333;
+  background:rgba(20,16,14,.85);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:12px;
+  padding:10px 14px;
   font-size:12.5px;
-  font-weight:550;
+  font-weight:700;
 }
-.slice {
-  width:100%;
-  border-radius:0;
+.hero-badge b { color:var(--orange); }
+
+/* Cards common */
+.card {
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius-md);
 }
-.program-note {
-  margin:15px auto 0;
-  text-align:center;
-  color:#555;
-  font-size:12px;
-  font-weight:650;
-}
-.program-note span {
-  color:var(--orange);
-  font-weight:900;
+.card-light {
+  background:var(--card-light);
+  color:var(--ink);
+  border:1px solid var(--line-light);
+  border-radius:var(--radius-md);
+  box-shadow:0 20px 40px -24px rgba(0,0,0,.35);
 }
 
 /* Program & akce */
-.events {
+.event-feature {
   display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
+  grid-template-columns:1fr 1fr;
+  gap:0;
+  overflow:hidden;
+  margin-bottom:28px;
 }
-.event-card {
+.event-feature img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  min-height:320px;
+}
+.event-feature-body {
+  padding:36px;
   display:flex;
-  gap:14px;
-  padding:14px 15px;
-  border:1px solid var(--line);
-  border-radius:14px;
-  background:#fff;
-  box-shadow:0 8px 22px rgba(25,18,14,.05);
+  flex-direction:column;
+  justify-content:center;
 }
-.event-date {
-  flex:0 0 auto;
-  width:52px;
-  height:52px;
-  border-radius:8px;
-  background:#fff3ed;
-  border:1px solid #ffcdbd;
-  color:var(--orange);
-  display:grid;
-  place-items:center;
-  text-align:center;
-  font-weight:950;
+.event-feature-body .eyebrow { color:var(--orange); }
+.event-feature-body h3 {
+  margin:0;
+  font-size:26px;
   line-height:1.1;
 }
-.event-date .day { font-size:18px; }
-.event-date .mon { font-size:9px; text-transform:uppercase; }
-.event-body h3 {
-  margin:0 0 4px;
-  font-size:13px;
-  font-weight:950;
-}
-.event-body p {
-  margin:0 0 8px;
-  font-size:11px;
+.event-feature-body p {
+  margin:14px 0 24px;
   color:var(--muted);
-  font-weight:650;
+  font-size:15px;
+  line-height:1.55;
 }
-.event-tags {
-  display:flex;
+.events-grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+.event-card {
+  padding:22px;
+}
+.event-date {
+  display:inline-flex;
+  align-items:baseline;
   gap:6px;
-  flex-wrap:wrap;
+  color:var(--orange);
+  font-weight:800;
+  margin-bottom:14px;
 }
+.event-date .day { font-size:26px; font-family:'Archivo Black', Arial, sans-serif; }
+.event-date .mon { font-size:12px; text-transform:uppercase; letter-spacing:.06em; }
+.event-card h4 {
+  margin:0 0 8px;
+  font-size:16px;
+  font-weight:800;
+}
+.event-card p {
+  margin:0 0 14px;
+  font-size:13.5px;
+  color:var(--muted);
+  line-height:1.4;
+}
+.event-tags { display:flex; gap:6px; flex-wrap:wrap; }
 .event-tags span {
-  font-size:9.5px;
+  font-size:11px;
   font-weight:800;
   color:var(--orange);
-  background:#fff3ed;
-  border:1px solid #ffcdbd;
+  background:rgba(242,85,44,.14);
   border-radius:20px;
-  padding:2px 8px;
+  padding:4px 10px;
 }
+.program-note {
+  margin:32px auto 0;
+  text-align:center;
+  color:var(--muted);
+  font-size:14px;
+}
+.program-note span, .program-note a { color:var(--orange); font-weight:800; }
 
-.drink-section {
-  padding-top:23px;
-}
-.drink-layout {
+/* Napoje */
+.drinks-photos {
   display:grid;
-  grid-template-columns:329px 361px;
+  grid-template-columns:1.3fr 1fr;
   gap:16px;
-  align-items:start;
+  margin-bottom:28px;
 }
-.drink-stack {
+.drink-photo-card {
+  position:relative;
+  border-radius:var(--radius-md);
+  overflow:hidden;
+  min-height:220px;
+}
+.drink-photo-card img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  position:absolute;
+  inset:0;
+}
+.drink-stack-mini { display:grid; gap:16px; }
+.menu-grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+  margin-bottom:28px;
+}
+.menu-card { padding:22px; }
+.menu-card h4 {
+  margin:0 0 16px;
+  font-size:15px;
+  font-weight:800;
+  color:var(--orange);
+}
+.menu-card ul {
+  list-style:none;
+  margin:0;
+  padding:0;
   display:grid;
   gap:9px;
 }
+.menu-card li {
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  font-size:13.5px;
+  color:var(--paper);
+  border-bottom:1px dashed var(--line);
+  padding-bottom:8px;
+}
+.menu-card li b { color:var(--muted); font-weight:700; white-space:nowrap; }
 .brands {
-  margin-top:13px;
   position:relative;
   overflow:hidden;
-  border-radius:9px;
-  border:1px solid #eee7e2;
-  background:white;
+  border-radius:var(--radius-md);
+  border:1px solid var(--line);
+  background:var(--surface);
+  padding:16px 0;
 }
 .brands-title {
-  position:absolute;
-  z-index:2;
-  left:13px;
-  top:16px;
-  font-size:14px;
-  font-weight:950;
+  padding:0 22px 12px;
+  font-size:13px;
+  font-weight:800;
+  color:var(--muted);
+  text-transform:uppercase;
+  letter-spacing:.08em;
 }
 .brand-track {
   width:max-content;
   display:flex;
   animation:brandsMove 32s linear infinite;
+  filter:grayscale(1) brightness(1.6) contrast(.9);
+  opacity:.85;
 }
 .brand-track img {
   width:704px;
   max-width:none;
-  height:53px;
+  height:46px;
   object-fit:cover;
 }
-.brands:hover .brand-track {
-  animation-play-state:paused;
-}
+.brands:hover .brand-track { animation-play-state:paused; }
 @keyframes brandsMove {
   from { transform:translateX(0); }
   to { transform:translateX(-704px); }
 }
-
 .drink-foot {
   text-align:center;
-  margin:12px 0 0;
-  font-size:12px;
-  color:#555;
-  font-weight:650;
+  margin:24px 0 0;
+  font-size:14px;
+  color:var(--muted);
 }
-.drink-foot span {
-  color:var(--orange);
-  font-weight:950;
+.drink-foot span { color:var(--orange); font-weight:800; }
+
+/* Prostory gallery */
+.gallery {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
 }
+.gallery-tall {
+  position:relative;
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  aspect-ratio:3/4;
+}
+.gallery-tall img { width:100%; height:100%; object-fit:cover; }
+.gallery-cap {
+  position:absolute;
+  left:0; right:0; bottom:0;
+  padding:20px;
+  background:linear-gradient(to top, rgba(10,7,6,.85), transparent 70%);
+  font-weight:800;
+  font-size:16px;
+  color:#fff;
+}
+
+/* Services */
 .services {
   display:grid;
-  grid-template-columns:repeat(6,1fr);
-  gap:11px;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
 }
 .service-card {
-  min-height:96px;
-  padding:14px 6px 10px;
-  border:1px solid #eee7e2;
-  border-radius:14px;
-  background:#fff;
-  text-align:center;
-  box-shadow:0 8px 22px rgba(25,18,14,.05);
+  padding:26px 22px;
+  display:flex;
+  align-items:flex-start;
+  gap:16px;
 }
 .service-icon {
-  width:35px;
-  height:35px;
-  margin:0 auto 8px;
+  width:46px;
+  height:46px;
+  border-radius:12px;
+  background:rgba(242,85,44,.14);
+  color:var(--orange);
   display:grid;
   place-items:center;
-  color:var(--orange);
-  font-size:24px;
+  font-size:22px;
+  flex:0 0 auto;
 }
 .service-card h3 {
   margin:0 0 4px;
-  font-size:11.5px;
-  line-height:1.12;
-  font-weight:950;
+  font-size:15.5px;
 }
 .service-card p {
   margin:0;
-  color:#555;
-  font-size:10.5px;
-  line-height:1.25;
-  font-weight:650;
+  color:var(--muted);
+  font-size:13.5px;
+  line-height:1.4;
 }
 
-/* Prostory & zážitky - fotogalerie */
-.gallery {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:10px;
-}
-.gallery figure {
-  margin:0;
+/* Community CTA */
+.community {
+  position:relative;
+  border-radius:var(--radius-lg);
   overflow:hidden;
-  border-radius:14px;
-  border:1px solid var(--line);
-  aspect-ratio:4/3;
+  min-height:340px;
+  display:flex;
+  align-items:center;
 }
-.gallery img {
+.community img {
+  position:absolute;
+  inset:0;
   width:100%;
   height:100%;
   object-fit:cover;
+  object-position:center 30%;
+}
+.community::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(105deg, rgba(8,6,5,.97) 40%, rgba(8,6,5,.62) 68%, rgba(8,6,5,.25) 100%);
+}
+.community-body h2, .community-body p {
+  text-shadow:0 2px 10px rgba(0,0,0,.5);
+}
+.community-body {
+  position:relative;
+  z-index:2;
+  padding:48px;
+  max-width:520px;
+}
+.community-body h2 {
+  margin:0 0 14px;
+  font-size:clamp(26px,3vw,34px);
+  color:#fff;
+}
+.community-body p {
+  margin:0 0 26px;
+  color:rgba(255,255,255,.82);
+  font-size:15.5px;
+  line-height:1.55;
 }
 
-.contact-wrap {
+/* Kontakt */
+.contact-panel {
+  padding:40px;
+}
+.contact-grid {
   display:grid;
-  grid-template-columns:214px 214px 270px;
-  gap:12px;
-  margin-top:15px;
+  grid-template-columns:1fr 1fr 1.2fr;
+  gap:28px;
 }
-.info-card {
-  min-height:150px;
-  border:1px solid #eee7e2;
-  border-radius:14px;
-  background:white;
-  box-shadow:0 8px 22px rgba(25,18,14,.05);
-  padding:16px 17px;
+.contact-grid h3 {
+  margin:0 0 16px;
+  font-size:17px;
+  font-weight:800;
 }
-.info-card h3 {
-  margin:0 0 13px;
-  font-size:15px;
-  line-height:1.1;
-  font-weight:950;
-}
-.contact-list {
-  display:grid;
-  gap:8px;
-}
-.contact-list div {
-  display:flex;
-  gap:8px;
-  color:#333;
-  font-size:10.5px;
-  line-height:1.35;
-  font-weight:650;
-}
-.contact-list b {
-  color:var(--orange);
-  width:14px;
-  flex:0 0 auto;
-}
-.hours {
-  display:grid;
-  gap:3px;
-  color:#111;
-  font-size:10.5px;
-  font-weight:650;
-}
-.hours div {
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-}
-.map {
+.contact-list { display:grid; gap:10px; }
+.contact-list div { display:flex; gap:10px; font-size:14px; line-height:1.4; color:var(--ink); }
+.contact-list b { color:var(--orange); width:16px; flex:0 0 auto; }
+.hours { display:grid; gap:5px; font-size:14px; }
+.hours div { display:flex; justify-content:space-between; gap:10px; }
+.hours b { font-weight:800; }
+.map-box {
   position:relative;
   min-height:150px;
-  overflow:hidden;
   border-radius:14px;
-  border:1px solid #eee7e2;
+  border:1px solid var(--line-light);
   background:
-    linear-gradient(20deg, transparent 45%, #d9d6d0 46% 48%, transparent 49%),
-    linear-gradient(-14deg, transparent 42%, #d9d6d0 43% 46%, transparent 47%),
-    linear-gradient(90deg, transparent 48%, #d9d6d0 49% 51%, transparent 52%),
-    linear-gradient(#f7f3ed,#eee8df);
-  box-shadow:0 8px 22px rgba(25,18,14,.05);
+    linear-gradient(20deg, transparent 45%, #e7ddd2 46% 48%, transparent 49%),
+    linear-gradient(-14deg, transparent 42%, #e7ddd2 43% 46%, transparent 47%),
+    linear-gradient(#f4ede4,#ece1d3);
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 .pin {
-  position:absolute;
-  left:55%;
-  top:26%;
-  width:40px;
-  height:40px;
+  width:36px; height:36px;
   border-radius:50% 50% 50% 0;
   background:var(--orange);
-  transform:rotate(-45deg);
+  transform:rotate(-45deg) translateY(-14px);
 }
 .pin::after {
   content:"";
   position:absolute;
-  inset:10px;
+  inset:9px;
   border-radius:50%;
-  background:white;
+  background:#fff;
 }
-.map .btn {
+.map-box .btn {
   position:absolute;
+  bottom:14px;
   left:50%;
-  bottom:18px;
   transform:translateX(-50%);
-  height:38px;
-  min-width:130px;
-}
-
-/* Rezervační formulář */
-.reserve-card {
-  margin-top:12px;
-  border:1px solid var(--line);
-  border-radius:14px;
-  background:#fff;
-  box-shadow:0 8px 22px rgba(25,18,14,.05);
-  padding:18px 19px 20px;
-}
-.reserve-card h3 {
-  margin:0 0 4px;
-  font-size:16px;
-  font-weight:950;
-}
-.reserve-card > p {
-  margin:0 0 15px;
-  font-size:11.5px;
-  color:var(--muted);
-  font-weight:600;
-}
-.reserve-form {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-}
-.field-full { grid-column:1 / -1; }
-.reserve-form label {
-  display:block;
-  margin-bottom:5px;
-  font-size:10.5px;
-  font-weight:800;
-  color:#333;
-}
-.reserve-form input,
-.reserve-form textarea {
-  width:100%;
-  padding:10px 12px;
-  border:1px solid #eee7e2;
-  border-radius:8px;
-  background:#fbf9f7;
-  font-family:inherit;
-  font-size:12.5px;
-  color:var(--ink);
-}
-.reserve-form input:focus,
-.reserve-form textarea:focus {
-  outline:2px solid var(--orange);
-  outline-offset:1px;
-  background:#fff;
-}
-.reserve-form textarea {
-  resize:vertical;
-  min-height:70px;
-}
-.reserve-form .btn {
-  height:42px;
-  width:100%;
-  border:none;
-  cursor:pointer;
+  height:40px;
+  padding:0 18px;
   font-size:13px;
 }
 
-.footer {
+.reserve {
   margin-top:24px;
-  padding:26px 0 22px;
-  border-top:1px solid #eee7e2;
+  border-top:1px solid var(--line-light);
+  padding-top:28px;
 }
+.reserve h3 { margin:0 0 4px; font-size:20px; }
+.reserve > p { margin:0 0 20px; color:var(--muted-ink); font-size:14px; }
+.reserve-form {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+.field-full { grid-column:1/-1; }
+.reserve-form label {
+  display:block;
+  margin-bottom:6px;
+  font-size:12.5px;
+  font-weight:800;
+  color:var(--ink);
+}
+.reserve-form input, .reserve-form textarea {
+  width:100%;
+  padding:13px 14px;
+  border:1px solid var(--line-light);
+  border-radius:10px;
+  background:#fff;
+  font-family:inherit;
+  font-size:14px;
+  color:var(--ink);
+}
+.reserve-form input:focus, .reserve-form textarea:focus {
+  outline:2px solid var(--orange);
+  outline-offset:1px;
+}
+.reserve-form textarea { resize:vertical; min-height:80px; }
+
+/* Footer */
+.footer { background:var(--bg-soft); border-top:1px solid var(--line); padding:56px 0 28px; }
 .footer-grid {
   display:grid;
-  grid-template-columns:160px 1fr 1fr 1fr 1.15fr;
-  gap:19px;
-  align-items:start;
+  grid-template-columns:1.4fr 1fr 1fr 1fr;
+  gap:32px;
 }
-.footer-logo {
-  width:140px;
-}
-.footer-logo svg {
-  width:100%;
-  height:auto;
-  display:block;
-}
-.footer h4 {
-  margin:0 0 9px;
-  font-size:12px;
-  font-weight:950;
-}
-.footer ul {
-  list-style:none;
-  margin:0;
-  padding:0;
-  display:grid;
-  gap:4px;
-}
-.footer li,
-.footer p {
-  margin:0;
-  color:#555;
-  font-size:10.5px;
-  line-height:1.45;
-  font-weight:600;
+.footer p.tagline { color:var(--muted); font-size:13.5px; margin:14px 0 0; max-width:260px; }
+.footer h4 { margin:0 0 14px; font-size:12.5px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); }
+.footer ul { list-style:none; margin:0; padding:0; display:grid; gap:9px; }
+.footer li, .footer li a { margin:0; color:var(--paper); font-size:14px; font-weight:600; }
+.footer li a:hover { color:var(--orange); }
+.footer-bottom {
+  margin-top:44px;
+  padding-top:20px;
+  border-top:1px solid var(--line);
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  color:var(--muted);
+  font-size:12.5px;
+  flex-wrap:wrap;
 }
 
-.mobile-nav {
-  display:none;
+/* Mobile nav */
+.mobile-nav { display:none; }
+
+@media (max-width:980px) {
+  .hero .wrap { grid-template-columns:1fr; gap:36px; }
+  .hero-visual { aspect-ratio:16/10; order:-1; }
+  .events-grid { grid-template-columns:repeat(2,1fr); }
+  .menu-grid { grid-template-columns:repeat(2,1fr); }
+  .services { grid-template-columns:repeat(2,1fr); }
+  .contact-grid { grid-template-columns:1fr 1fr; }
+  .contact-grid .map-box { grid-column:1/-1; }
+  .footer-grid { grid-template-columns:1fr 1fr; }
 }
 
-@media (max-width:780px) {
-  .page {
-    width:100%;
-  }
-  .container {
-    width:calc(100% - 24px);
-    max-width:none;
-  }
-  .nav,.header-buttons {
-    display:none;
-  }
-  html {
-    scroll-padding-top:100px;
-  }
-  .header {
-    height:88px;
-  }
-  .header-inner {
-    height:88px;
-  }
-  .logo svg {
-    width:141px;
-  }
-  .hero {
-    min-height:auto;
-  }
-  .hero-copy {
-    width:100%;
-    padding:26px 0 18px;
-  }
-  .hero-copy h1 {
-    font-size:40px;
-  }
-  .features {
-    grid-template-columns:1fr;
-  }
-  .features li {
-    font-size:15px;
-  }
-  .hero-actions .btn {
-    font-size:14px;
-    height:46px;
-  }
-  .hero-visual {
-    position:relative;
-    width:100%;
-    height:auto;
-  }
-  .hero-visual img {
-    height:auto;
-  }
-  .section-title h2 {
-    font-size:24px;
-  }
-  .section-title p {
-    font-size:14px;
-  }
-  .drink-layout,
-  .contact-wrap,
-  .footer-grid {
-    grid-template-columns:1fr;
-  }
-  .services,
-  .events,
-  .gallery {
-    grid-template-columns:1fr;
-  }
-  .event-card {
-    padding:16px 17px;
-  }
-  .event-body h3 {
-    font-size:15px;
-  }
-  .event-body p {
-    font-size:12.5px;
-  }
-  .event-tags span {
-    font-size:11px;
-  }
-  .gallery figure {
-    aspect-ratio:16/9;
-  }
-  .service-card {
-    text-align:left;
-    display:flex;
-    align-items:center;
-    gap:14px;
-    min-height:auto;
-    padding:14px 16px;
-  }
-  .service-icon {
-    margin:0;
-    flex:0 0 auto;
-  }
-  .service-card h3 {
-    font-size:14px;
-  }
-  .service-card p {
-    font-size:12px;
-  }
-  .program-note,
-  .drink-foot {
-    font-size:13.5px;
-  }
-  .info-card {
-    padding:18px 19px;
-  }
-  .info-card h3 {
-    font-size:17px;
-  }
-  .contact-list div,
-  .hours {
-    font-size:13px;
-  }
-  .reserve-card h3 {
-    font-size:19px;
-  }
-  .reserve-card > p {
-    font-size:13px;
-  }
-  .reserve-form label {
-    font-size:12.5px;
-  }
-  .reserve-form input,
-  .reserve-form textarea {
-    font-size:15px;
-    padding:12px 14px;
-  }
-  .reserve-form .btn {
-    height:48px;
-    font-size:15px;
-  }
-  .footer li,
-  .footer p {
-    font-size:12.5px;
-  }
-  .reserve-form {
-    grid-template-columns:1fr;
-  }
-  .brands-title {
-    position:static;
-    padding:12px 12px 0;
-  }
-  .brand-track img {
-    width:704px;
-  }
-  body {
-    padding-bottom:100px;
-  }
+@media (max-width:720px) {
+  html { scroll-padding-top:84px; }
+  :root { --pad-y:56px; }
+  .wrap { padding:0 18px; }
+  .header { height:72px; }
+  .nav { display:none; }
+  .header-cta .btn { height:42px; padding:0 16px; font-size:12.5px; }
+  .hero { padding:36px 0 48px; }
+  .hero-copy h1 { font-size:34px; }
+  .hero-copy p.lead { font-size:16px; }
+  .hero-actions .btn { flex:1 1 auto; height:52px; font-size:14px; padding:0 16px; }
+  .chips li { font-size:14px; padding:10px 16px 10px 10px; }
+  .section-head h2 { font-size:26px; }
+  .section-head p { font-size:15px; }
+  .event-feature { grid-template-columns:1fr; }
+  .event-feature img { min-height:220px; }
+  .event-feature-body { padding:26px; }
+  .events-grid, .menu-grid, .services { grid-template-columns:1fr; }
+  .drinks-photos { grid-template-columns:1fr; }
+  .drink-stack-mini { grid-template-columns:1fr 1fr; display:grid; }
+  .gallery { grid-template-columns:1fr; }
+  .gallery-tall { aspect-ratio:4/3; }
+  .contact-panel { padding:26px; }
+  .contact-grid { grid-template-columns:1fr; gap:22px; }
+  .reserve-form { grid-template-columns:1fr; }
+  .community-body { padding:30px; max-width:none; }
+  .footer-grid { grid-template-columns:1fr 1fr; gap:26px; }
+  body { padding-bottom:96px; }
   .mobile-nav {
     position:fixed;
-    left:12px;
-    right:12px;
-    bottom:12px;
+    left:12px; right:12px; bottom:12px;
     z-index:80;
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:8px;
+    gap:6px;
     padding:10px;
-    border-radius:18px;
-    background:rgba(16,16,16,.96);
-    box-shadow:0 18px 34px rgba(0,0,0,.24);
+    border-radius:20px;
+    background:rgba(10,7,6,.96);
+    border:1px solid var(--line);
+    box-shadow:0 18px 34px rgba(0,0,0,.4);
   }
   .mobile-nav a {
     display:grid;
     place-items:center;
-    gap:2px;
-    color:white;
-    font-size:12px;
+    gap:3px;
+    color:var(--muted);
+    font-size:11.5px;
     font-weight:800;
-    padding:4px 0;
+    padding:5px 0;
   }
-  .mobile-nav span {
-    font-size:20px;
-  }
+  .mobile-nav a.active { color:var(--orange); }
+  .mobile-nav span { font-size:19px; }
 }
 </style>
 </head>
 <body>
-<div class="page">
-  <header class="header">
-    <div class="container header-inner">
-      <a class="logo" href="#uvod" aria-label="Music Bar Bourák – úvod">
-        <svg viewBox="35 8 270 153" role="img" aria-label="Music Bar Bourák">
-          <text x="160" y="46" text-anchor="middle" font-family="Yellowtail, cursive" font-size="36" fill="var(--orange)">Music Bar</text>
-          <text x="160" y="112" text-anchor="middle" font-family="Lobster, cursive" font-size="62" fill="var(--orange)" stroke="#1a1a1a" stroke-width="1.5" paint-order="stroke">Bourák</text>
-          <path d="M40 160 C 46 142, 60 126, 82 121 C 100 117, 110 104, 134 98 C 162 91, 204 92, 230 106 C 248 116, 260 121, 280 122 C 292 122, 300 128, 300 138 C 300 148, 290 154, 278 154 L 52 154 C 44 154, 40 160, 40 160 Z" fill="none" stroke="#111" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
-      <nav class="nav" aria-label="Hlavní navigace">
-        <a class="active" href="#uvod">Úvod</a>
-        <a href="#program">Akce</a>
-        <a href="#napoje">Nápojový lístek</a>
-        <a href="#prostory">Prostory</a>
-        <a href="#kontakt">Kontakt</a>
-      </nav>
-      <div class="header-buttons">
-        <a class="btn btn-primary" href="#kontakt"><span aria-hidden="true">📅</span> Rezervovat stůl</a>
-        <a class="btn btn-outline" href="#kontakt"><span aria-hidden="true">✉</span> Napište nám</a>
+
+<header class="header">
+  <div class="wrap">
+    <a class="logo" href="#uvod" aria-label="Music Bar Bourák – úvod">
+      <span class="logo-cap">Music Bar</span>
+      <span class="logo-main">Bourák</span>
+    </a>
+    <nav class="nav" aria-label="Hlavní navigace">
+      <a class="active" href="#uvod">Úvod</a>
+      <a href="#program">Akce</a>
+      <a href="#napoje">Nápoje</a>
+      <a href="#prostory">Prostory</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <div class="header-cta">
+      <a class="btn btn-primary" href="#kontakt"><span aria-hidden="true">📅</span> Rezervovat</a>
+    </div>
+  </div>
+</header>
+
+<main id="uvod">
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <h1>Music Bar Bourák<br>místo, kde žije<br><span class="accent">hudba, zábava a sport</span></h1>
+        <p class="lead">Živá hudba, DJ párty, chytré kvízy a sportovní přenosy pod jednou střechou. Zastav se na drink, zůstaň na dobrou noc.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#kontakt"><span aria-hidden="true">📅</span> Rezervovat stůl</a>
+          <a class="btn btn-outline" href="#napoje"><span aria-hidden="true">🍸</span> Nápojový lístek</a>
+        </div>
+        <ul class="chips">
+          <li><span class="ico" aria-hidden="true">🎵</span>Živá hudba</li>
+          <li><span class="ico" aria-hidden="true">🎧</span>DJ a párty</li>
+          <li><span class="ico" aria-hidden="true">🍹</span>Koktejly a drinky</li>
+          <li><span class="ico" aria-hidden="true">♪</span>Taneční parket</li>
+          <li><span class="ico" aria-hidden="true">📺</span>Sportovní přenosy</li>
+          <li><span class="ico" aria-hidden="true">🔒</span>Privátní rezervace</li>
+        </ul>
+      </div>
+      <div class="hero-visual">
+        <img src="assets/images/photos/shots-tray.jpg" alt="Panák shoty s pomerančem na baru Bourák">
+        <div class="hero-badge">🍹 <b>Signature shoty</b> každý večer na baru</div>
       </div>
     </div>
-  </header>
+  </section>
 
-  <main id="uvod">
-    <section class="hero">
-      <div class="container">
-        <div class="hero-copy">
-          <h1>Music Bar Bourák –<br>místo, kde žije<br><span>hudba, zábava a sport</span></h1>
-          <ul class="features">
-            <li><span class="ico" aria-hidden="true">🎵</span>Skvělá živá hudba</li>
-            <li><span class="ico" aria-hidden="true">🎧</span>DJ a párty</li>
-            <li><span class="ico" aria-hidden="true">🍹</span>Koktejly a drinky</li>
-            <li><span class="ico" aria-hidden="true">♪</span>Taneční parket</li>
-            <li><span class="ico" aria-hidden="true">📺</span>Sportovní přenosy</li>
-            <li><span class="ico" aria-hidden="true">🔒</span>Privátní rezervace</li>
+  <section class="section" id="program">
+    <div class="wrap">
+      <div class="section-head center">
+        <div class="eyebrow">Program & akce</div>
+        <h2>V Bouráku je vždy co zažít</h2>
+        <p>Živá muzika, DJ párty, sportovní přenosy a pravidelné kvízové večery. Mrkni, co tě nejvíc zajímá.</p>
+      </div>
+
+      <div class="card event-feature">
+        <img src="assets/images/photos/quiz-poster.jpg" alt="Plakát Chytrý kvíz v Bouráku" loading="lazy">
+        <div class="event-feature-body">
+          <div class="eyebrow">Pravidelná akce</div>
+          <h3>Chytrý kvíz v Bouráku</h3>
+          <p>„Kdo neví, ten se tváří chytře!“ Postav tým, přihlas se a poměř síly s ostatními o skvělé ceny. Sledujte Facebook, kde vždy vypisujeme nejbližší termín.</p>
+          <a class="btn btn-primary" href="https://www.facebook.com/musicbarbourak/" target="_blank" rel="noopener" style="width:max-content">
+            <span aria-hidden="true">🧠</span> Přihlásit tým
+          </a>
+        </div>
+      </div>
+
+      <div class="events-grid">
+        <article class="card event-card">
+          <div class="event-date"><span class="day">22</span><span class="mon">Srp</span></div>
+          <h4>Live Music Night</h4>
+          <p>Kapela Reflex Band od 20:00</p>
+          <div class="event-tags"><span>Live hudba</span><span>Vstup volný</span></div>
+        </article>
+        <article class="card event-card">
+          <div class="event-date"><span class="day">29</span><span class="mon">Srp</span></div>
+          <h4>DJ Párty: Retro Fever</h4>
+          <p>DJ Marty, hity 80. a 90. let</p>
+          <div class="event-tags"><span>DJ</span><span>Párty</span></div>
+        </article>
+        <article class="card event-card">
+          <div class="event-date"><span class="day">05</span><span class="mon">Zář</span></div>
+          <h4>Sportovní přenos: Liga mistrů</h4>
+          <p>Velkoplošná projekce od 18:00</p>
+          <div class="event-tags"><span>Sport</span><span>Live přenos</span></div>
+        </article>
+        <article class="card event-card">
+          <div class="event-date"><span class="day">12</span><span class="mon">Zář</span></div>
+          <h4>Karaoke Night</h4>
+          <p>Zpívej s kapelou nebo si objednej svůj hit</p>
+          <div class="event-tags"><span>Karaoke</span><span>Vstup volný</span></div>
+        </article>
+      </div>
+      <p class="program-note">Program se aktualizuje denně — sledujte nás na Instagramu <span>@musicbar.bourak</span></p>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="napoje">
+    <div class="wrap">
+      <div class="section-head center">
+        <div class="eyebrow">Nápojový lístek</div>
+        <h2>Signature drinky i rychlý panák</h2>
+        <p>Bohatý výběr koktejlů, whisky, ginů i nealka. Ptej se barmana na aktuální sezónní nabídku.</p>
+      </div>
+
+      <div class="drinks-photos">
+        <div class="drink-photo-card drink-photo-plain">
+          <img src="assets/images/drinks-bar.webp" alt="Bohatý bar a velký výběr značek: vyber si ze široké nabídky koktejlů, vína, piva i nealka" loading="lazy">
+        </div>
+        <div class="drink-stack-mini">
+          <div class="drink-photo-card drink-photo-plain">
+            <img src="assets/images/drinks-special.webp" alt="Speciální drinky: originální drinky z rukou našich barmanů, každý měsíc nové chutě a limitované edice" loading="lazy">
+          </div>
+          <div class="drink-photo-card drink-photo-plain">
+            <img src="assets/images/drinks-news.webp" alt="Rychlý na baru: nečekáte dlouho, bar je vždy naplno kvalitní klasikou i bez zbytečného čekání" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-grid">
+        <div class="card menu-card">
+          <h4>Signature drinky</h4>
+          <ul>
+            <li>Bourák Sunset <b>169 Kč</b></li>
+            <li>Bourák Mojito <b>169 Kč</b></li>
+            <li>Moscow Mule <b>159 Kč</b></li>
+            <li>Pornstar Martini <b>169 Kč</b></li>
+            <li>Bourák Long Island <b>169 Kč</b></li>
           </ul>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#kontakt"><span aria-hidden="true">📅</span> Rezervovat stůl</a>
-            <a class="btn btn-outline" href="#napoje"><span aria-hidden="true">☆</span> Nápojový lístek</a>
-          </div>
         </div>
-        <div class="hero-visual">
-          <img src="assets/images/hero.webp" alt="Interiér Music Bar Bourák s barem a hosty">
+        <div class="card menu-card">
+          <h4>Rumky & whiskey</h4>
+          <ul>
+            <li>Captain Morgan <b>149 Kč</b></li>
+            <li>Jack Daniel's <b>149 Kč</b></li>
+            <li>Jameson <b>149 Kč</b></li>
+            <li>Tullamore Dew <b>149 Kč</b></li>
+            <li>Zacapa 23y <b>219 Kč</b></li>
+          </ul>
         </div>
-      </div>
-    </section>
-
-    <section class="section" id="program">
-      <div class="container">
-        <div class="section-title">
-          <h2>Program & akce</h2>
-          <p>V Music Baru Bourák je vždy co zažít. Mrkni, co tě nejvíc zajímá.</p>
+        <div class="card menu-card">
+          <h4>Gin tonic</h4>
+          <ul>
+            <li>Beefeater <b>139 Kč</b></li>
+            <li>Bombay Sapphire <b>149 Kč</b></li>
+            <li>Hendrick's <b>159 Kč</b></li>
+            <li>Gin Mare <b>169 Kč</b></li>
+            <li>Monkey 47 <b>189 Kč</b></li>
+          </ul>
         </div>
-        <div class="events">
-          <article class="event-card">
-            <div class="event-date" aria-hidden="true"><span class="day">22</span><span class="mon">Srp</span></div>
-            <div class="event-body">
-              <h3>Live Music Night</h3>
-              <p>Kapela Reflex Band od 20:00</p>
-              <div class="event-tags"><span>Live hudba</span><span>Vstup volný</span></div>
-            </div>
-          </article>
-          <article class="event-card">
-            <div class="event-date" aria-hidden="true"><span class="day">29</span><span class="mon">Srp</span></div>
-            <div class="event-body">
-              <h3>DJ Párty: Retro Fever</h3>
-              <p>DJ Marty, hity 80. a 90. let</p>
-              <div class="event-tags"><span>DJ</span><span>Párty</span></div>
-            </div>
-          </article>
-          <article class="event-card">
-            <div class="event-date" aria-hidden="true"><span class="day">05</span><span class="mon">Zář</span></div>
-            <div class="event-body">
-              <h3>Sportovní přenos: Liga mistrů</h3>
-              <p>Velkoplošná projekce, otevřeno od 18:00</p>
-              <div class="event-tags"><span>Sport</span><span>Live přenos</span></div>
-            </div>
-          </article>
-          <article class="event-card">
-            <div class="event-date" aria-hidden="true"><span class="day">12</span><span class="mon">Zář</span></div>
-            <div class="event-body">
-              <h3>Karaoke Night</h3>
-              <p>Zpívej s kapelou nebo si objednej svůj hit</p>
-              <div class="event-tags"><span>Karaoke</span><span>Vstup volný</span></div>
-            </div>
-          </article>
-        </div>
-        <p class="program-note">▣ Program se aktualizuje denně, sledujte nás na Instagramu <span>@musicbar.bourak</span></p>
-      </div>
-    </section>
-
-    <section class="section drink-section" id="napoje">
-      <div class="container">
-        <div class="section-title">
-          <h2>Nápojový lístek</h2>
-        </div>
-
-        <div class="drink-layout">
-          <img src="assets/images/drinks-bar.webp" alt="Bohatý bar a velký výběr značek" loading="lazy">
-          <div class="drink-stack">
-            <img src="assets/images/drinks-special.webp" alt="Speciální drinky" loading="lazy">
-            <img src="assets/images/drinks-news.webp" alt="Novinky na baru" loading="lazy">
-          </div>
-        </div>
-
-        <div class="brands">
-          <div class="brands-title">Naše značky</div>
-          <div class="brands-slider">
-            <div class="brand-track">
-              <img src="assets/images/brands-strip.webp" alt="Značky alkoholu na baru" loading="lazy">
-              <img src="assets/images/brands-strip.webp" alt="" loading="lazy">
-              <img src="assets/images/brands-strip.webp" alt="" loading="lazy">
-            </div>
-          </div>
-        </div>
-
-        <img class="slice" style="margin-top:12px" src="assets/images/drinks-menu.webp" alt="Kategorie nápojového lístku" loading="lazy">
-        <p class="drink-foot">✧ <span>Sezónní nabídka</span> nápojů se mění podle dostupnosti. Ptej se na baru!</p>
-      </div>
-    </section>
-
-    <section class="section" id="prostory">
-      <div class="container">
-        <div class="section-title">
-          <h2>Prostory & zážitky</h2>
-          <p>Nahlédněte do interiéru – bar, parket i klidná zákoutí na drink s přáteli.</p>
-        </div>
-        <div class="gallery">
-          <figure><img src="assets/images/prostory/prostory-1.svg" alt="Bar a výčep Music Bar Bourák" loading="lazy"></figure>
-          <figure><img src="assets/images/prostory/prostory-2.svg" alt="Taneční parket" loading="lazy"></figure>
-          <figure><img src="assets/images/prostory/prostory-3.svg" alt="Salonek pro privátní akce" loading="lazy"></figure>
-          <figure><img src="assets/images/prostory/prostory-4.svg" alt="Pódium pro živou hudbu" loading="lazy"></figure>
-          <figure><img src="assets/images/prostory/prostory-5.svg" alt="Sezení pro hosty" loading="lazy"></figure>
-          <figure><img src="assets/images/prostory/prostory-6.svg" alt="Terasa" loading="lazy"></figure>
+        <div class="card menu-card">
+          <h4>Nealko</h4>
+          <ul>
+            <li>Domácí limonády <b>69 Kč</b></li>
+            <li>Red Bull / Sugarfree <b>79 Kč</b></li>
+            <li>Cappy džusy <b>59 Kč</b></li>
+            <li>Royal Crown Cola <b>59 Kč</b></li>
+            <li>Aquila voda <b>39 Kč</b></li>
+          </ul>
         </div>
       </div>
-    </section>
 
-    <section class="section" id="sluzby">
-      <div class="container">
-        <div class="section-title">
-          <h2>Služby navíc</h2>
-        </div>
-        <div class="services">
-          <article class="service-card"><div class="service-icon" aria-hidden="true">□</div><h3>Zásilkovna</h3><p>Výdejní místo</p></article>
-          <article class="service-card"><div class="service-icon" aria-hidden="true">▧</div><h3>PPL Parcelshop</h3><p>Podání a vyzvednutí</p></article>
-          <article class="service-card"><div class="service-icon" aria-hidden="true">▣</div><h3>DPD / AlzaBox</h3><p>Výdejní místo</p></article>
-          <article class="service-card"><div class="service-icon" aria-hidden="true">📺</div><h3>Sportovní přenosy</h3><p>Velké zápasy live</p></article>
-          <article class="service-card"><div class="service-icon" aria-hidden="true">▦</div><h3>Rezervace akcí</h3><p>Stůl nebo soukromá akce</p></article>
-          <article class="service-card"><div class="service-icon" aria-hidden="true">▤</div><h3>Nápojový lístek (PDF)</h3><p>Stáhněte si kompletní lístek</p></article>
+      <div class="brands">
+        <div class="brands-title">Naše značky</div>
+        <div class="brand-track">
+          <img src="assets/images/brands-strip.webp" alt="Značky alkoholu na baru" loading="lazy">
+          <img src="assets/images/brands-strip.webp" alt="" loading="lazy">
+          <img src="assets/images/brands-strip.webp" alt="" loading="lazy">
         </div>
       </div>
-    </section>
+      <p class="drink-foot"><span>Sezónní nabídka</span> nápojů se mění podle dostupnosti. Ptej se na baru!</p>
+    </div>
+  </section>
 
-    <section class="section" id="facebook">
-      <div class="container">
-        <div class="section-title">
-          <h2>Aktuality z Facebooku</h2>
-        </div>
-        <img class="slice" src="assets/images/facebook-feed.webp" alt="Aktuality z Facebooku" loading="lazy">
-        <p class="program-note" style="margin-top:15px">
+  <section class="section" id="prostory">
+    <div class="wrap">
+      <div class="section-head center">
+        <div class="eyebrow">Prostory & atmosféra</div>
+        <h2>Nahlédni k nám dovnitř</h2>
+        <p>Živé fotky přímo z Bouráku — bar, parket i plný sál na kvízovém večeru.</p>
+      </div>
+      <div class="gallery">
+        <figure class="gallery-tall">
+          <img src="assets/images/photos/bar-counter.jpg" alt="Bar a výčep Music Bar Bourák" loading="lazy">
+          <figcaption class="gallery-cap">Bar & výčep</figcaption>
+        </figure>
+        <figure class="gallery-tall">
+          <img src="assets/images/photos/quiz-crowd.jpg" alt="Plný sál na kvízovém večeru" loading="lazy">
+          <figcaption class="gallery-cap">Kvízový večer</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="sluzby">
+    <div class="wrap">
+      <div class="section-head center">
+        <div class="eyebrow">Služby navíc</div>
+        <h2>Víc než jen bar</h2>
+      </div>
+      <div class="services">
+        <article class="card service-card">
+          <div class="service-icon" aria-hidden="true">📦</div>
+          <div><h3>Zásilkovna</h3><p>Výdejní místo přímo u nás</p></div>
+        </article>
+        <article class="card service-card">
+          <div class="service-icon" aria-hidden="true">📮</div>
+          <div><h3>PPL Parcelshop</h3><p>Podání a vyzvednutí balíků</p></div>
+        </article>
+        <article class="card service-card">
+          <div class="service-icon" aria-hidden="true">🚚</div>
+          <div><h3>DPD / AlzaBox</h3><p>Výdejní místo</p></div>
+        </article>
+        <article class="card service-card">
+          <div class="service-icon" aria-hidden="true">📺</div>
+          <div><h3>Sportovní přenosy</h3><p>Velké zápasy live na plátně</p></div>
+        </article>
+        <article class="card service-card">
+          <div class="service-icon" aria-hidden="true">🗓️</div>
+          <div><h3>Rezervace akcí</h3><p>Stůl nebo celá soukromá akce</p></div>
+        </article>
+        <article class="card service-card">
+          <div class="service-icon" aria-hidden="true">📄</div>
+          <div><h3>Nápojový lístek (PDF)</h3><p>Stáhněte si kompletní lístek</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="komunita">
+    <div class="wrap">
+      <div class="community">
+        <img src="assets/images/photos/quiz-winners.jpg" alt="Vítězové kvízového večera s cenami v Bouráku" loading="lazy">
+        <div class="community-body">
+          <div class="eyebrow">Komunita Bouráku</div>
+          <h2>Staň se součástí party</h2>
+          <p>Sledujte nás na Facebooku — nová videa, fotky z akcí a pozvánky na kvízy, párty i sportovní přenosy.</p>
           <a class="btn btn-primary" href="https://www.facebook.com/musicbarbourak/" target="_blank" rel="noopener">
             <span aria-hidden="true">f</span> Sledovat na Facebooku
           </a>
-        </p>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section" id="kontakt">
-      <div class="container">
-        <div class="contact-wrap">
-          <article class="info-card">
+  <section class="section section-alt" id="kontakt">
+    <div class="wrap">
+      <div class="section-head center">
+        <div class="eyebrow">Kontakt & rezervace</div>
+        <h2>Přijď na drink, nebo si rezervuj stůl</h2>
+      </div>
+
+      <div class="card-light contact-panel">
+        <div class="contact-grid">
+          <div>
             <h3>Kontakt</h3>
             <div class="contact-list">
               <div><b aria-hidden="true">⌖</b><span>Ke Kateřinkám 1411/17,<br>149 00 Praha 11 – Chodov</span></div>
@@ -968,8 +1021,8 @@ img { display:block; max-width:100%; }
               <div><b aria-hidden="true">✉</b><span>info@musicbarbourak.cz</span></div>
               <div><b aria-hidden="true">f</b><a href="https://www.facebook.com/musicbarbourak/" target="_blank" rel="noopener">facebook.com/musicbarbourak</a></div>
             </div>
-          </article>
-          <article class="info-card">
+          </div>
+          <div>
             <h3>Otevírací doba</h3>
             <div class="hours">
               <div><span>Pondělí</span><b>17:00 – 24:00</b></div>
@@ -980,14 +1033,14 @@ img { display:block; max-width:100%; }
               <div><span>Sobota</span><b>18:00 – 03:00</b></div>
               <div><span>Neděle</span><b>18:00 – 24:00</b></div>
             </div>
-          </article>
-          <article class="map" aria-label="Mapa umístění baru">
+          </div>
+          <div class="map-box" aria-label="Mapa umístění baru">
             <div class="pin" aria-hidden="true"></div>
-            <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=Ke+Kate%C5%99ink%C3%A1m+1411%2F17+Praha">Zobrazit na mapě</a>
-          </article>
+            <a class="btn btn-light" href="https://www.google.com/maps/search/?api=1&query=Ke+Kate%C5%99ink%C3%A1m+1411%2F17+Praha">Zobrazit na mapě</a>
+          </div>
         </div>
 
-        <div class="reserve-card">
+        <div class="reserve">
           <h3>Rezervace stolu</h3>
           <p>Vyplňte formulář a my se vám ozveme s potvrzením.</p>
           <form class="reserve-form" action="#" method="post">
@@ -1012,35 +1065,50 @@ img { display:block; max-width:100%; }
               <textarea id="res-message" name="message" placeholder="Počet osob, příležitost, poznámky…"></textarea>
             </div>
             <div class="field-full">
-              <button class="btn btn-primary" type="submit">Odeslat rezervaci</button>
+              <button class="btn btn-primary btn-block" type="submit">Odeslat rezervaci</button>
             </div>
           </form>
         </div>
       </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-grid">
-      <div class="footer-logo" role="img" aria-label="Music Bar Bourák">
-        <svg viewBox="35 8 270 153">
-          <text x="160" y="46" text-anchor="middle" font-family="Yellowtail, cursive" font-size="36" fill="var(--orange)">Music Bar</text>
-          <text x="160" y="112" text-anchor="middle" font-family="Lobster, cursive" font-size="62" fill="var(--orange)" stroke="#1a1a1a" stroke-width="1.5" paint-order="stroke">Bourák</text>
-          <path d="M40 160 C 46 142, 60 126, 82 121 C 100 117, 110 104, 134 98 C 162 91, 204 92, 230 106 C 248 116, 260 121, 280 122 C 292 122, 300 128, 300 138 C 300 148, 290 154, 278 154 L 52 154 C 44 154, 40 160, 40 160 Z" fill="none" stroke="#111" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-      <div><h4>Rychlé odkazy</h4><ul><li>Akce</li><li>Nápojový lístek</li><li>Prostory</li><li>Kontakt</li></ul></div>
-      <div><h4>Užitečné</h4><ul><li>Služby</li><li>Dárkové poukazy</li><li>Obchodní podmínky (GDPR)</li></ul></div>
-      <div><h4>Sledujte nás</h4><ul><li><a href="https://www.facebook.com/musicbarbourak/" target="_blank" rel="noopener">Facebook</a></li><li>Instagram</li></ul></div>
-      <div><p>© Music Bar Bourák 2026<br>Všechna práva vyhrazena.</p><p>Vytvořeno s ❤ v Music Baru</p></div>
     </div>
-  </footer>
-</div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="logo">
+          <span class="logo-cap">Music Bar</span>
+          <span class="logo-main">Bourák</span>
+        </div>
+        <p class="tagline">Místo, kde žije hudba, zábava a sport. Praha 11 – Chodov.</p>
+      </div>
+      <div>
+        <h4>Rychlé odkazy</h4>
+        <ul><li><a href="#program">Akce</a></li><li><a href="#napoje">Nápojový lístek</a></li><li><a href="#prostory">Prostory</a></li><li><a href="#kontakt">Kontakt</a></li></ul>
+      </div>
+      <div>
+        <h4>Užitečné</h4>
+        <ul><li><a href="#sluzby">Služby</a></li><li>Dárkové poukazy</li><li>Obchodní podmínky (GDPR)</li></ul>
+      </div>
+      <div>
+        <h4>Sledujte nás</h4>
+        <ul><li><a href="https://www.facebook.com/musicbarbourak/" target="_blank" rel="noopener">Facebook</a></li><li>Instagram</li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© Music Bar Bourák 2026. Všechna práva vyhrazena.</span>
+      <span>Vytvořeno s ❤ v Music Baru</span>
+    </div>
+  </div>
+</footer>
 
 <nav class="mobile-nav" aria-label="Mobilní navigace">
-  <a href="#program"><span aria-hidden="true">▦</span>Akce</a>
+  <a class="active" href="#program"><span aria-hidden="true">🗓️</span>Akce</a>
   <a href="#napoje"><span aria-hidden="true">🍹</span>Nápoje</a>
-  <a href="#sluzby"><span aria-hidden="true">□</span>Služby</a>
+  <a href="#prostory"><span aria-hidden="true">🖼️</span>Prostory</a>
   <a href="#kontakt"><span aria-hidden="true">⌖</span>Kontakt</a>
 </nav>
 </body>
