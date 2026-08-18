@@ -6,6 +6,20 @@
 <title>Music Bar Bourák – hudba, zábava a sport</title>
 <meta name="description" content="Music Bar Bourák: živá hudba, DJ párty, koktejly, sportovní přenosy a privátní rezervace. Praha 11 – Chodov.">
 <style>
+@font-face {
+  font-family:'Lobster';
+  src:url('assets/fonts/lobster-latin.woff2') format('woff2');
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+}
+@font-face {
+  font-family:'Yellowtail';
+  src:url('assets/fonts/yellowtail-latin.woff2') format('woff2');
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+}
 :root {
   --orange:#f2552c;
   --ink:#111;
@@ -17,7 +31,7 @@
 * { box-sizing:border-box; }
 html {
   scroll-behavior:smooth;
-  scroll-padding-top:80px;
+  scroll-padding-top:88px;
 }
 body {
   margin:0;
@@ -40,7 +54,7 @@ img { display:block; max-width:100%; }
   margin:0 auto;
 }
 .header {
-  height:68px;
+  height:76px;
   position:sticky;
   top:0;
   z-index:40;
@@ -49,13 +63,16 @@ img { display:block; max-width:100%; }
   border-bottom:1px solid #eee8e4;
 }
 .header-inner {
-  height:68px;
+  height:76px;
   display:flex;
   align-items:center;
   gap:24px;
 }
-.logo img {
-  width:104px;
+.logo {
+  display:flex;
+}
+.logo svg {
+  width:124px;
   height:auto;
 }
 .nav {
@@ -68,7 +85,7 @@ img { display:block; max-width:100%; }
 }
 .nav a {
   position:relative;
-  height:68px;
+  height:76px;
   display:flex;
   align-items:center;
 }
@@ -237,7 +254,7 @@ img { display:block; max-width:100%; }
   gap:14px;
   padding:14px 15px;
   border:1px solid var(--line);
-  border-radius:10px;
+  border-radius:14px;
   background:#fff;
   box-shadow:0 8px 22px rgba(25,18,14,.05);
 }
@@ -351,7 +368,7 @@ img { display:block; max-width:100%; }
   min-height:96px;
   padding:14px 6px 10px;
   border:1px solid #eee7e2;
-  border-radius:10px;
+  border-radius:14px;
   background:#fff;
   text-align:center;
   box-shadow:0 8px 22px rgba(25,18,14,.05);
@@ -388,7 +405,7 @@ img { display:block; max-width:100%; }
 .gallery figure {
   margin:0;
   overflow:hidden;
-  border-radius:10px;
+  border-radius:14px;
   border:1px solid var(--line);
   aspect-ratio:4/3;
 }
@@ -407,7 +424,7 @@ img { display:block; max-width:100%; }
 .info-card {
   min-height:150px;
   border:1px solid #eee7e2;
-  border-radius:10px;
+  border-radius:14px;
   background:white;
   box-shadow:0 8px 22px rgba(25,18,14,.05);
   padding:16px 17px;
@@ -451,7 +468,7 @@ img { display:block; max-width:100%; }
   position:relative;
   min-height:150px;
   overflow:hidden;
-  border-radius:10px;
+  border-radius:14px;
   border:1px solid #eee7e2;
   background:
     linear-gradient(20deg, transparent 45%, #d9d6d0 46% 48%, transparent 49%),
@@ -490,7 +507,7 @@ img { display:block; max-width:100%; }
 .reserve-card {
   margin-top:12px;
   border:1px solid var(--line);
-  border-radius:10px;
+  border-radius:14px;
   background:#fff;
   box-shadow:0 8px 22px rgba(25,18,14,.05);
   padding:18px 19px 20px;
@@ -560,7 +577,12 @@ img { display:block; max-width:100%; }
   align-items:start;
 }
 .footer-logo {
-  width:115px;
+  width:140px;
+}
+.footer-logo svg {
+  width:100%;
+  height:auto;
+  display:block;
 }
 .footer h4 {
   margin:0 0 9px;
@@ -598,8 +620,17 @@ img { display:block; max-width:100%; }
   .nav,.header-buttons {
     display:none;
   }
+  html {
+    scroll-padding-top:100px;
+  }
+  .header {
+    height:88px;
+  }
   .header-inner {
-    height:64px;
+    height:88px;
+  }
+  .logo svg {
+    width:141px;
   }
   .hero {
     min-height:auto;
@@ -609,10 +640,17 @@ img { display:block; max-width:100%; }
     padding:26px 0 18px;
   }
   .hero-copy h1 {
-    font-size:38px;
+    font-size:40px;
   }
   .features {
     grid-template-columns:1fr;
+  }
+  .features li {
+    font-size:15px;
+  }
+  .hero-actions .btn {
+    font-size:14px;
+    height:46px;
   }
   .hero-visual {
     position:relative;
@@ -622,6 +660,12 @@ img { display:block; max-width:100%; }
   .hero-visual img {
     height:auto;
   }
+  .section-title h2 {
+    font-size:24px;
+  }
+  .section-title p {
+    font-size:14px;
+  }
   .drink-layout,
   .contact-wrap,
   .footer-grid {
@@ -630,7 +674,76 @@ img { display:block; max-width:100%; }
   .services,
   .events,
   .gallery {
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:1fr;
+  }
+  .event-card {
+    padding:16px 17px;
+  }
+  .event-body h3 {
+    font-size:15px;
+  }
+  .event-body p {
+    font-size:12.5px;
+  }
+  .event-tags span {
+    font-size:11px;
+  }
+  .gallery figure {
+    aspect-ratio:16/9;
+  }
+  .service-card {
+    text-align:left;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    min-height:auto;
+    padding:14px 16px;
+  }
+  .service-icon {
+    margin:0;
+    flex:0 0 auto;
+  }
+  .service-card h3 {
+    font-size:14px;
+  }
+  .service-card p {
+    font-size:12px;
+  }
+  .program-note,
+  .drink-foot {
+    font-size:13.5px;
+  }
+  .info-card {
+    padding:18px 19px;
+  }
+  .info-card h3 {
+    font-size:17px;
+  }
+  .contact-list div,
+  .hours {
+    font-size:13px;
+  }
+  .reserve-card h3 {
+    font-size:19px;
+  }
+  .reserve-card > p {
+    font-size:13px;
+  }
+  .reserve-form label {
+    font-size:12.5px;
+  }
+  .reserve-form input,
+  .reserve-form textarea {
+    font-size:15px;
+    padding:12px 14px;
+  }
+  .reserve-form .btn {
+    height:48px;
+    font-size:15px;
+  }
+  .footer li,
+  .footer p {
+    font-size:12.5px;
   }
   .reserve-form {
     grid-template-columns:1fr;
@@ -643,7 +756,7 @@ img { display:block; max-width:100%; }
     width:704px;
   }
   body {
-    padding-bottom:96px;
+    padding-bottom:100px;
   }
   .mobile-nav {
     position:fixed;
@@ -654,7 +767,7 @@ img { display:block; max-width:100%; }
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:8px;
-    padding:9px;
+    padding:10px;
     border-radius:18px;
     background:rgba(16,16,16,.96);
     box-shadow:0 18px 34px rgba(0,0,0,.24);
@@ -662,12 +775,14 @@ img { display:block; max-width:100%; }
   .mobile-nav a {
     display:grid;
     place-items:center;
+    gap:2px;
     color:white;
-    font-size:11px;
+    font-size:12px;
     font-weight:800;
+    padding:4px 0;
   }
   .mobile-nav span {
-    font-size:17px;
+    font-size:20px;
   }
 }
 </style>
@@ -676,7 +791,13 @@ img { display:block; max-width:100%; }
 <div class="page">
   <header class="header">
     <div class="container header-inner">
-      <a class="logo" href="#uvod" aria-label="Music Bar Bourák – úvod"><img src="assets/images/logo.png" alt="Music Bar Bourák"></a>
+      <a class="logo" href="#uvod" aria-label="Music Bar Bourák – úvod">
+        <svg viewBox="35 8 270 153" role="img" aria-label="Music Bar Bourák">
+          <text x="160" y="46" text-anchor="middle" font-family="Yellowtail, cursive" font-size="36" fill="var(--orange)">Music Bar</text>
+          <text x="160" y="112" text-anchor="middle" font-family="Lobster, cursive" font-size="62" fill="var(--orange)" stroke="#1a1a1a" stroke-width="1.5" paint-order="stroke">Bourák</text>
+          <path d="M40 160 C 46 142, 60 126, 82 121 C 100 117, 110 104, 134 98 C 162 91, 204 92, 230 106 C 248 116, 260 121, 280 122 C 292 122, 300 128, 300 138 C 300 148, 290 154, 278 154 L 52 154 C 44 154, 40 160, 40 160 Z" fill="none" stroke="#111" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
       <nav class="nav" aria-label="Hlavní navigace">
         <a class="active" href="#uvod">Úvod</a>
         <a href="#program">Akce</a>
@@ -828,6 +949,11 @@ img { display:block; max-width:100%; }
           <h2>Aktuality z Facebooku</h2>
         </div>
         <img class="slice" src="assets/images/facebook-feed.webp" alt="Aktuality z Facebooku" loading="lazy">
+        <p class="program-note" style="margin-top:15px">
+          <a class="btn btn-primary" href="https://www.facebook.com/musicbarbourak/" target="_blank" rel="noopener">
+            <span aria-hidden="true">f</span> Sledovat na Facebooku
+          </a>
+        </p>
       </div>
     </section>
 
@@ -840,7 +966,7 @@ img { display:block; max-width:100%; }
               <div><b aria-hidden="true">⌖</b><span>Ke Kateřinkám 1411/17,<br>149 00 Praha 11 – Chodov</span></div>
               <div><b aria-hidden="true">☎</b><span>+420 123 456 789</span></div>
               <div><b aria-hidden="true">✉</b><span>info@musicbarbourak.cz</span></div>
-              <div><b aria-hidden="true">f</b><span>facebook.com/musicbarbourak</span></div>
+              <div><b aria-hidden="true">f</b><a href="https://www.facebook.com/musicbarbourak/" target="_blank" rel="noopener">facebook.com/musicbarbourak</a></div>
             </div>
           </article>
           <article class="info-card">
@@ -896,10 +1022,16 @@ img { display:block; max-width:100%; }
 
   <footer class="footer">
     <div class="container footer-grid">
-      <div><img class="footer-logo" src="assets/images/logo.png" alt="Music Bar Bourák" loading="lazy"></div>
+      <div class="footer-logo" role="img" aria-label="Music Bar Bourák">
+        <svg viewBox="35 8 270 153">
+          <text x="160" y="46" text-anchor="middle" font-family="Yellowtail, cursive" font-size="36" fill="var(--orange)">Music Bar</text>
+          <text x="160" y="112" text-anchor="middle" font-family="Lobster, cursive" font-size="62" fill="var(--orange)" stroke="#1a1a1a" stroke-width="1.5" paint-order="stroke">Bourák</text>
+          <path d="M40 160 C 46 142, 60 126, 82 121 C 100 117, 110 104, 134 98 C 162 91, 204 92, 230 106 C 248 116, 260 121, 280 122 C 292 122, 300 128, 300 138 C 300 148, 290 154, 278 154 L 52 154 C 44 154, 40 160, 40 160 Z" fill="none" stroke="#111" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
       <div><h4>Rychlé odkazy</h4><ul><li>Akce</li><li>Nápojový lístek</li><li>Prostory</li><li>Kontakt</li></ul></div>
       <div><h4>Užitečné</h4><ul><li>Služby</li><li>Dárkové poukazy</li><li>Obchodní podmínky (GDPR)</li></ul></div>
-      <div><h4>Sledujte nás</h4><ul><li>Facebook</li><li>Instagram</li></ul></div>
+      <div><h4>Sledujte nás</h4><ul><li><a href="https://www.facebook.com/musicbarbourak/" target="_blank" rel="noopener">Facebook</a></li><li>Instagram</li></ul></div>
       <div><p>© Music Bar Bourák 2026<br>Všechna práva vyhrazena.</p><p>Vytvořeno s ❤ v Music Baru</p></div>
     </div>
   </footer>
