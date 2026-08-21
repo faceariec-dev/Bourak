@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nápojový lístek – Music Bar Bourák</title>
+<meta name="description" content="Kompletní nápojový lístek Music Bar Bourák: piva, nealko, vína, koktejly, rum, whisky, vodka, gin, tequila, aperitivy a shoty.">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+.menu-page-hero { padding:44px 0 32px; border-bottom:1px solid var(--line); }
+.menu-page-hero h1 { font-size:clamp(34px,5vw,54px); }
+.menu-page-hero p { margin:14px 0 0; color:var(--muted); max-width:560px; font-size:16px; }
+.cat-nav {
+  position:sticky; top:78px; z-index:40;
+  background:rgba(21,15,11,.96);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+  overflow-x:auto;
+  scrollbar-width:none;
+}
+.cat-nav::-webkit-scrollbar { display:none; }
+.cat-nav-inner { display:flex; gap:8px; padding:14px 28px; width:max-content; }
+.cat-pill {
+  font-family:'Oswald', sans-serif;
+  font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.02em;
+  color:var(--muted);
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:30px;
+  padding:9px 18px;
+  white-space:nowrap;
+}
+.cat-pill:hover { color:var(--paper); }
+.menu-cat { padding:56px 0; border-bottom:1px solid var(--line); scroll-margin-top:150px; }
+.menu-cat:last-of-type { border-bottom:none; }
+.menu-cat-head { display:flex; align-items:center; gap:14px; margin-bottom:28px; }
+.menu-cat-head .menu-ico { font-size:28px; }
+.menu-cat-head h2 { font-size:clamp(24px,3vw,32px); }
+.menu-list {
+  list-style:none; margin:0; padding:0;
+  display:grid; grid-template-columns:1fr 1fr; gap:10px 40px;
+}
+.menu-list li {
+  display:flex; justify-content:space-between; align-items:baseline; gap:14px;
+  padding:12px 0; border-bottom:1px dashed var(--line);
+}
+.menu-list li span { font-size:15px; }
+.menu-list li small { display:block; color:var(--muted); font-size:12.5px; margin-top:2px; }
+.menu-list li b { color:var(--orange); font-family:'Oswald', sans-serif; font-weight:700; white-space:nowrap; }
+.pdf-note { margin-top:56px; text-align:center; color:var(--muted); font-size:13.5px; }
+@media (max-width:720px) {
+  .cat-nav { top:70px; }
+  .menu-list { grid-template-columns:1fr; }
+  .menu-cat { padding:40px 0; scroll-margin-top:130px; }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="wrap header-inner">
+    <a class="logo-plate" href="index.html" aria-label="Music Bar Bourák – úvod">
+      <img src="assets/images/logo.webp" alt="Music Bar Bourák" width="220" height="53">
+    </a>
+    <nav class="nav" aria-label="Hlavní navigace">
+      <a href="index.html#uvod">Úvod</a>
+      <a href="index.html#akce">Akce</a>
+      <a class="active" href="napoje.html">Nápoje</a>
+      <a href="index.html#prostory">Prostory</a>
+      <a href="index.html#kontakt">Kontakt</a>
+    </nav>
+    <div class="header-cta">
+      <a class="btn btn-outline" href="index.html">← Zpět na web</a>
+      <a class="btn btn-primary" href="index.html#kontakt">Rezervace</a>
+    </div>
+  </div>
+</header>
+
+<nav class="cat-nav" aria-label="Kategorie nápojového lístku">
+  <div class="cat-nav-inner">
+    <a class="cat-pill" href="#piva">Piva</a>
+    <a class="cat-pill" href="#nealko">Nealko</a>
+    <a class="cat-pill" href="#vina">Vína</a>
+    <a class="cat-pill" href="#koktejly">Koktejly</a>
+    <a class="cat-pill" href="#rum">Rum</a>
+    <a class="cat-pill" href="#whisky">Whisky</a>
+    <a class="cat-pill" href="#vodka">Vodka</a>
+    <a class="cat-pill" href="#gin">Gin</a>
+    <a class="cat-pill" href="#tequila">Tequila</a>
+    <a class="cat-pill" href="#aperitivy">Aperitivy</a>
+    <a class="cat-pill" href="#shoty">Shoty</a>
+  </div>
+</nav>
+
+<main>
+  <section class="menu-page-hero">
+    <div class="wrap">
+      <h1 class="display">Nápojový lístek</h1>
+      <p>Kompletní nabídka piv, drinků a destilátů na baru Music Bar Bourák. Nabídka se může měnit podle aktuální dostupnosti — ptej se barmana.</p>
+    </div>
+  </section>
+
+  <section class="menu-cat" id="piva">
+    <div class="wrap">
+      <div class="menu-cat-head"><span class="menu-ico" aria-hidden="true">🍺</span><h2 class="cond">Piva</h2></div>
+      <ul class="menu-list">
+        <li><span>Radegast Ryze Hořká 0,5l</span><b>55 Kč</b></li>
+        <li><span>Staropramen Ležák 0,5l</span><b>55 Kč</b></li>
+        <li><span>Kozel Premium 0,5l</span><b>52 Kč</b></li>
+        <li><span>Plzeňský Prazdroj 0,3l</span><b>42 Kč</b></li>
+        <li><span>Birell (nealko) 0,5l</span><b>45 Kč</b></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="menu-cat" id="nealko">
+    <div class="wrap">
+      <div class="menu-cat-head"><span class="menu-ico" aria-hidden="true">🥤</span><h2 class="cond">Nealko</h2></div>
+      <ul class="menu-list">
+        <li><span>Domácí limonáda 0,4l</span><b>69 Kč</b></li>
+        <li><span>Red Bull 0,25l</span><b>79 Kč</b></li>
+        <li><span>Cappy pomeranč / jablko 0,2l</span><b>45 Kč</b></li>
+        <li><span>Royal Crown Cola 0,33l</span><b>59 Kč</b></li>
+        <li><span>Aquila neperlivá 0,33l</span><b>39 Kč</b></li>
+        <li><span>Toma přírodní 0,25l</span><b>45 Kč</b></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="menu-cat" id="vina">
+    <div class="wrap">
+      <div class="menu-cat-head"><span class="menu-ico" aria-hidden="true">🍷</span><h2 class="cond">Vína</h2></div>
+      <ul class="menu-list">
+        <li><span>Bohemia Sekt Demi Sec 0,1l</span><b>79 Kč</b></li>
+        <li><span>Veltlínské zelené 0,1l</span><b>59 Kč</b></li>
+        <li><span>Rulandské modré 0,1l</span><b>65 Kč</b></li>
+        <li><span>Frankovka 0,1l</span><b>65 Kč</b></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="menu-cat" id="koktejly">
+    <div class="wrap">
+      <div class="menu-cat-head"><span class="menu-ico" aria-hidden="true">🍹</span><h2 class="cond">Koktejly &amp; míchané drinky</h2></div>
+      <ul class="menu-list">
+        <li><span>Bourák Sunset</span><b>169 Kč</b></li>
+        <li><span>Bourák Mojito</span><b>169 Kč</b></li>
+        <li><span>Moscow Mule</span><b>159 Kč</b></li>
+        <li><span>Pornstar Martini</span><b>169 Kč</b></li>
+        <li><span>Bourák Long Island</span><b>169 Kč</b></li>
+        <li><span>Cuba Libre</span><b>149 Kč</b></li>
+        <li><span>Sex on the Beach</span><b>149 Kč</b></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="menu-cat" id="rum">
+    <div class="wrap">
+      <div class="menu-cat-head"><span class="menu-ico" aria-hidden="true">🥃</span><h2 class="cond">Rum</h2></div>
+      <ul class="menu-list">
+        <li><span>Captain Morgan Spiced 0,04l</span><b>149 Kč</b></li>
+        <li><span>Captain Morgan Dark 0,04l</span><b>149 Kč</b></li>
+        <li><span>Havana Club 7y 0,04l</span><b>179 Kč</b></li>
+        <li><span>Zacapa 23y 0,04l</span><b>219 Kč</b></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="menu-cat" id="whisky">
+    <div class="wrap">
+      <div class="menu-cat-head"><span class="menu-ico" aria-hidden="true">🥃</span><h2 class="cond">Whisky</h2></div>
+      <ul class="menu-list">
+        <li><span>Jack Daniel's 0,04l</span><b>149 Kč</b></li>
+        <li><span>Jameson 0,04l</span><b>149 Kč</b></li>
+        <li><span>Tullamore Dew 0,04l</span><b>149 Kč</b></li>
+        <li><span>Chivas Regal 12y 0,04l</span><b>189 Kč</b></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="menu-cat" id="vodka">
+    <div class="wrap">
+      <div class="menu-cat-head"><span class="menu-ico" aria-hidden="true">🧊</span><h2 class="cond">Vodka</h2></div>
+      <ul class="menu-list">
+        <li><span>Finlandia 0,04l</span><b>99 Kč</b></li>
+        <li><span>Absolut 0,04l</span><b>99 Kč</b></li>
+        <li><span>Absolut Citron 0,04l</span><b>105 Kč</b></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="menu-cat" id="gin">
+    <div class="wrap">
+      <div class="menu-cat-head"><span class="menu-ico" aria-hidden="true">🌿</span><h2 class="cond">Gin</h2></div>
+      <ul class="menu-list">
+        <li><span>Beefeater 0,04l</span><b>139 Kč</b></li>
+        <li><span>Bombay Sapphire 0,04l</span><b>149 Kč</b></li>
+        <li><span>Hendrick's 0,04l</span><b>159 Kč</b></li>
+        <li><span>Gin Mare 0,04l</span><b>169 Kč</b></li>
+        <li><span>Monkey 47 0,04l</span><b>189 Kč</b></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="menu-cat" id="tequila">
+    <div class="wrap">
+      <div class="menu-cat-head"><span class="menu-ico" aria-hidden="true">🌵</span><h2 class="cond">Tequila</h2></div>
+      <ul class="menu-list">
+        <li><span>Olmeca Blanco 0,04l</span><b>129 Kč</b></li>
+        <li><span>Olmeca Gold 0,04l</span><b>139 Kč</b></li>
+        <li><span>Jose Cuervo Especial 0,04l</span><b>135 Kč</b></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="menu-cat" id="aperitivy">
+    <div class="wrap">
+      <div class="menu-cat-head"><span class="menu-ico" aria-hidden="true">🍊</span><h2 class="cond">Aperitivy</h2></div>
+      <ul class="menu-list">
+        <li><span>Aperol Spritz</span><b>125 Kč</b></li>
+        <li><span>Martini Bianco 0,04l</span><b>79 Kč</b></li>
+        <li><span>Campari 0,04l</span><b>89 Kč</b></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="menu-cat" id="shoty">
+    <div class="wrap">
+      <div class="menu-cat-head"><span class="menu-ico" aria-hidden="true">🥂</span><h2 class="cond">Shoty</h2></div>
+      <ul class="menu-list">
+        <li><span>Bourák Signature Shot</span><small>naše specialita s pomerančem</small><b>59 Kč</b></li>
+        <li><span>Jägermeister 0,04l</span><b>55 Kč</b></li>
+        <li><span>Fernet Stock 0,04l</span><b>45 Kč</b></li>
+        <li><span>Tequila Sunrise Shot</span><b>55 Kč</b></li>
+      </ul>
+      <p class="pdf-note">Nabídka a ceny se mohou měnit podle sezónní dostupnosti. Kompletní a aktuální lístek najdete vždy na baru.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div>
+      <a class="logo-plate" href="index.html" aria-label="Music Bar Bourák">
+        <img src="assets/images/logo.webp" alt="Music Bar Bourák" width="180" height="43" loading="lazy">
+      </a>
+      <p class="tagline">Místo, kde žije hudba, zábava a sport. Praha 11 – Chodov.</p>
+    </div>
+    <div>
+      <h4 class="cond">Rychlé odkazy</h4>
+      <ul><li><a href="index.html#akce">Akce</a></li><li><a href="napoje.html">Nápojový lístek</a></li><li><a href="index.html#prostory">Prostory</a></li><li><a href="index.html#kontakt">Kontakt</a></li></ul>
+    </div>
+    <div>
+      <h4 class="cond">Užitečné</h4>
+      <ul><li><a href="index.html#sluzby">Služby</a></li><li>Dárkové poukazy</li><li>Obchodní podmínky (GDPR)</li></ul>
+    </div>
+    <div>
+      <h4 class="cond">Sledujte nás</h4>
+      <div class="social-row">
+        <a href="https://www.facebook.com/musicbarbourak/" target="_blank" rel="noopener" aria-label="Facebook Music Bar Bourák">Facebook</a>
+        <a href="#" aria-label="Instagram Music Bar Bourák">Instagram</a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© Music Bar Bourák 2026. Všechna práva vyhrazena.</span>
+    <span>Vytvořeno s ❤ v Music Baru</span>
+  </div>
+</footer>
+
+<nav class="mobile-nav" aria-label="Mobilní navigace">
+  <a href="index.html#akce"><span aria-hidden="true">🗓️</span>Akce</a>
+  <a class="active" href="napoje.html"><span aria-hidden="true">🍹</span>Nápoje</a>
+  <a href="index.html#prostory"><span aria-hidden="true">🖼️</span>Prostory</a>
+  <a href="index.html#kontakt"><span aria-hidden="true">⌖</span>Kontakt</a>
+</nav>
+</body>
+</html>
