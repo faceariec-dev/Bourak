@@ -11,7 +11,7 @@
 
 <header class="header">
   <div class="wrap header-inner">
-    <a class="logo-plate" href="#uvod" aria-label="Music Bar Bourák – úvod">
+    <a class="logo-link" href="#uvod" aria-label="Music Bar Bourák – úvod">
       <img src="assets/images/logo.webp" alt="Music Bar Bourák" width="220" height="53">
     </a>
     <nav class="nav" aria-label="Hlavní navigace">
@@ -23,7 +23,7 @@
       <a href="#kontakt">Kontakt</a>
     </nav>
     <div class="header-cta">
-      <a class="btn btn-outline" href="napoje.html">Nápojový lístek</a>
+      <a class="btn btn-outline-dark" href="napoje.html">Nápojový lístek</a>
       <a class="btn btn-primary" href="#kontakt">Rezervace</a>
     </div>
   </div>
@@ -63,7 +63,7 @@
   </section>
 
   <!-- PILÍŘE BOURÁKU -->
-  <section class="section" id="pilire">
+  <section class="section section-light" id="pilire">
     <div class="wrap">
       <div class="section-head">
         <p class="eyebrow">Co u nás najdeš</p>
@@ -155,7 +155,7 @@
 
   <!-- SPECIÁLNÍ NABÍDKA -->
   <!-- Snadno skrytelný blok: pokud právě neběží žádný speciál, smaž celou <section id="special">…</section> -->
-  <section class="section special" id="special">
+  <section class="section section-light special" id="special">
     <div class="wrap">
       <div class="special-card">
         <div class="special-media"><img src="assets/images/photos/shots-tray.jpg" alt="Bourák Signature Shot" loading="lazy" width="900" height="1600"></div>
@@ -171,7 +171,7 @@
   </section>
 
   <!-- NÁPOJOVÝ LÍSTEK (krátký výběr) -->
-  <section class="section section-alt" id="napoje">
+  <section class="section section-light" id="napoje">
     <div class="wrap">
       <div class="section-head section-head-row">
         <div>
@@ -241,8 +241,22 @@
     </div>
   </section>
 
+  <!-- SOUKROMÉ AKCE CTA (tmavý akcentní pás) -->
+  <section class="section" id="akce-na-miru">
+    <div class="wrap">
+      <div class="cta-banner">
+        <div>
+          <p class="eyebrow eyebrow-onlight">Soukromé akce</p>
+          <h2 class="cond">Chceš uspořádat vlastní akci?</h2>
+          <p>Narozeniny, firemní večírek, teambuilding nebo oslava jen pro vaši partu — domluvíme se na míru.</p>
+        </div>
+        <a class="btn btn-light btn-lg" href="#kontakt">Chci uspořádat akci</a>
+      </div>
+    </div>
+  </section>
+
   <!-- PROSTORY A ZÁŽITKY -->
-  <section class="section section-alt" id="prostory">
+  <section class="section section-light" id="prostory">
     <div class="wrap">
       <div class="section-head">
         <p class="eyebrow">Prostory &amp; zážitky</p>
@@ -262,31 +276,17 @@
           <figcaption><span class="cond">Oslavy &amp; komunita</span></figcaption>
         </figure>
         <div class="mosaic-tile mosaic-icon">
-          <div class="pillar-icon" aria-hidden="true">🎯</div>
+          <div class="icon-badge" aria-hidden="true">🎯</div>
           <span class="cond">Šipky &amp; fotbálek</span>
         </div>
         <div class="mosaic-tile mosaic-icon">
-          <div class="pillar-icon" aria-hidden="true">🏓</div>
+          <div class="icon-badge" aria-hidden="true">🏓</div>
           <span class="cond">Stolní tenis</span>
         </div>
         <div class="mosaic-tile mosaic-icon">
-          <div class="pillar-icon" aria-hidden="true">🎧</div>
+          <div class="icon-badge" aria-hidden="true">🎧</div>
           <span class="cond">Hudba &amp; DJ vybavení</span>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SOUKROMÉ AKCE CTA -->
-  <section class="section" id="akce-na-miru">
-    <div class="wrap">
-      <div class="cta-banner">
-        <div>
-          <p class="eyebrow eyebrow-onlight">Soukromé akce</p>
-          <h2 class="cond">Chceš uspořádat vlastní akci?</h2>
-          <p>Narozeniny, firemní večírek, teambuilding nebo oslava jen pro vaši partu — domluvíme se na míru.</p>
-        </div>
-        <a class="btn btn-light btn-lg" href="#kontakt">Chci uspořádat akci</a>
       </div>
     </div>
   </section>
@@ -317,25 +317,19 @@
           <p>Nový drink na baru — pojďte ochutnat, než dojde 🍹</p>
           <img src="assets/images/photos/shots-tray.jpg" alt="" loading="lazy" width="900" height="1600">
         </article>
-        <article class="wall-post">
-          <div class="wall-head"><span class="wall-avatar cond">MB</span><div><b>Music Bar Bourák</b><span>před 2 týdny</span></div></div>
-          <p>Bar je naplno otevřený a čepujeme! Zastavte se na pivo 🍺</p>
-          <img src="assets/images/photos/bar-counter.jpg" alt="" loading="lazy" width="900" height="1600">
-        </article>
       </div>
     </div>
   </section>
 
   <!-- KONTAKT -->
-  <section class="section" id="kontakt">
+  <section class="section section-light" id="kontakt">
     <div class="wrap">
       <div class="section-head">
         <p class="eyebrow">Kontakt &amp; rezervace</p>
         <h2 class="display">Přijď na drink, nebo si rezervuj stůl</h2>
       </div>
 
-      <div class="contact-panel">
-        <div class="contact-grid">
+      <div class="contact-grid">
           <div>
             <h3 class="cond">Kontakt</h3>
             <div class="contact-list">
@@ -392,7 +386,6 @@
             </div>
           </form>
         </div>
-      </div>
     </div>
   </section>
 
