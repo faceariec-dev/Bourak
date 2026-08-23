@@ -61,8 +61,10 @@ html {
   scroll-behavior:smooth;
   scroll-padding-top:96px;
 }
+html { overflow-x:hidden; }
 body {
   margin:0;
+  overflow-x:hidden;
   background:var(--bg);
   color:var(--paper);
   font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
@@ -129,7 +131,6 @@ img { display:block; max-width:100%; }
   background:var(--cream);
   color:var(--ink);
 }
-.section-light .eyebrow { color:var(--orange-deep); }
 .section-light .section-head p { color:var(--muted-ink); }
 .section-light .link-arrow { color:var(--orange-deep); }
 .section-light .link-arrow:hover { color:var(--orange); }
@@ -142,21 +143,30 @@ img { display:block; max-width:100%; }
   flex-wrap:wrap;
   max-width:none;
 }
-.section-head h2 { font-size:clamp(30px,3.6vw,46px); }
+.section-head h2 { font-size:clamp(30px,3.6vw,46px); position:relative; padding-bottom:20px; }
+.section-head h2::after {
+  content:"";
+  position:absolute; left:0; bottom:0;
+  width:60px; height:5px;
+  background:var(--orange);
+  clip-path: polygon(0 0, 100% 0, 86% 100%, 0 100%);
+}
 .komunita-note { margin:12px 0 0; font-size:13.5px; color:var(--muted); max-width:420px; }
 .eyebrow {
   display:inline-flex;
   align-items:center;
-  gap:8px;
   font-family:'Oswald', sans-serif;
-  font-size:12.5px;
+  font-size:11.5px;
   font-weight:700;
-  letter-spacing:.16em;
+  letter-spacing:.14em;
   text-transform:uppercase;
-  color:var(--orange);
-  margin:0 0 10px;
+  color:#fff;
+  background:var(--orange);
+  padding:7px 16px 7px 13px;
+  clip-path: polygon(0 0, 100% 0, 89% 100%, 0 100%);
+  margin:0 0 14px;
 }
-.eyebrow-onlight { color:var(--orange); }
+.eyebrow-onlight { background:var(--ink); color:#fff; }
 .link-arrow {
   font-family:'Oswald', sans-serif;
   font-weight:600;
@@ -200,17 +210,18 @@ img { display:block; max-width:100%; }
 .logo-link { display:inline-flex; align-items:center; flex-shrink:0; }
 .logo-link img { height:46px; width:auto; flex-shrink:0; }
 
-/* ============ Logo plate (boxed, for dark footer) ============ */
+/* ============ Logo plate (cut ticket, for dark footer) ============ */
 .logo-plate {
   display:inline-flex;
   align-items:center;
   background:var(--cream);
-  border-radius:3px;
-  padding:8px 14px;
+  padding:9px 16px;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+  border-bottom:3px solid var(--orange);
   line-height:0;
   flex-shrink:0;
 }
-.logo-plate img { height:38px; width:auto; flex-shrink:0; }
+.logo-plate img { height:32px; width:auto; flex-shrink:0; }
 
 /* ============ Header ============ */
 .header {
@@ -281,9 +292,26 @@ img { display:block; max-width:100%; }
   background:
     radial-gradient(circle at 15% 8%, rgba(255,66,28,.18), transparent 45%),
     var(--bg);
-  border-bottom:1px solid var(--line);
   overflow:hidden;
   position:relative;
+}
+/* Skewed seam: diagonal cut from dark hero into the light section that follows */
+.skew-seam {
+  position:relative;
+  height:60px;
+  background:var(--bg);
+  overflow:hidden;
+  z-index:3;
+}
+.skew-seam::before {
+  content:"";
+  position:absolute;
+  left:-6%; right:-6%; bottom:-2px;
+  height:130%;
+  background:var(--cream);
+  box-shadow:0 -4px 0 var(--orange);
+  transform:skewY(-1.8deg);
+  transform-origin:bottom left;
 }
 .hero-car-motif {
   position:absolute;
@@ -345,7 +373,7 @@ img { display:block; max-width:100%; }
   overflow:hidden;
   height:100%;
   min-height:420px;
-  clip-path: polygon(7% 0, 100% 0, 100% 100%, 0 100%, 0 9%);
+  clip-path: polygon(9% 0, 100% 0, 100% 100%, 0 100%, 0 12%);
   box-shadow:0 30px 60px -20px rgba(0,0,0,.7);
 }
 .hero-photo img { width:100%; height:100%; object-fit:cover; object-position:center 30%; }
@@ -368,46 +396,64 @@ img { display:block; max-width:100%; }
 }
 .hero-photo-badge img { width:100%; height:100%; object-fit:cover; object-position:center 35%; }
 
-/* ============ Pilíře ============ */
+/* ============ Pilíře (plakátové karty á la brand grafika) ============ */
 .pillars {
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:14px;
+  gap:20px;
+  align-items:start;
 }
-.pillar-wide { grid-column:span 2; }
-.pillar {
+.pillar-card--wide { grid-column:span 2; }
+.pillar-card {
   position:relative;
-  clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 0 100%);
-  overflow:hidden;
-  min-height:250px;
   display:flex;
-  align-items:flex-end;
-  padding:24px;
+  flex-direction:column;
+  background:#fff;
+  clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%);
+  overflow:hidden;
+  box-shadow:0 18px 34px -22px rgba(20,20,20,.35);
+  transition:transform .2s ease;
 }
-.pillar::before {
-  content:"";
-  position:absolute; top:0; left:0; right:0; height:5px;
-  background:var(--orange);
-  z-index:2;
+.pillar-card:hover { transform:translateY(-4px); }
+.pillar-media { position:relative; aspect-ratio:4/3; overflow:hidden; background:var(--bg-alt); }
+.pillar-card--wide .pillar-media { aspect-ratio:20/9; }
+.pillar-media img { width:100%; height:100%; object-fit:cover; }
+.pillar-label { position:relative; padding:18px 22px 22px; border-top:4px solid var(--orange); }
+.pillar-label h3 { font-size:23px; color:var(--ink); margin:0 0 6px; }
+.pillar-card--wide .pillar-label h3 { font-size:30px; }
+.pillar-label p {
+  margin:0;
+  font-family:'Oswald', sans-serif;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  color:var(--orange-deep);
 }
-.pillar-photo {
-  background-color:var(--bg-alt);
-  background-size:cover;
-  background-position:center;
-  background-repeat:no-repeat;
+.pillar-card--accent {
+  background:linear-gradient(155deg, var(--orange), var(--orange-deep));
+  justify-content:center;
+  min-height:250px;
 }
-.pillar-photo::after {
-  content:"";
-  position:absolute; inset:0;
-  background:linear-gradient(to top, rgba(8,8,8,.92) 15%, rgba(8,8,8,.15) 70%);
+.pillar-card--accent::before {
+  content:"?";
+  position:absolute; right:2px; bottom:-42px;
+  font-family:'Anton', sans-serif;
+  font-size:210px;
+  line-height:1;
+  color:rgba(255,255,255,.14);
+  pointer-events:none;
 }
-.pillar-solid { background:linear-gradient(155deg, var(--orange), var(--orange-deep)); }
-.pillar-body { position:relative; z-index:2; }
-.pillar h3 { font-size:24px; margin:0 0 4px; color:#fff; }
-.pillar-wide h3 { font-size:32px; }
-.pillar p { margin:0; font-size:13.5px; color:rgba(247,245,242,.85); }
-.pillar-solid p { color:rgba(255,255,255,.92); }
-.pillar:hover { transform:translateY(-3px); transition:transform .2s ease; }
+.pillar-label--accent { border-top:none; padding:26px 26px 30px; position:relative; z-index:2; }
+.pillar-label--accent h3 { color:#fff; }
+.pillar-label--accent p { color:rgba(255,255,255,.85); }
+/* Lehká nepravidelnost — plakátový rozhoz karet na desktopu */
+@media (min-width:981px) {
+  .pillar-card:nth-child(2) { transform:translateY(16px); }
+  .pillar-card:nth-child(2):hover { transform:translateY(12px); }
+  .pillar-card:nth-child(4) { transform:translateY(-8px); }
+  .pillar-card:nth-child(4):hover { transform:translateY(-12px); }
+}
 
 /* ============ Akce / Events ============ */
 .events {
@@ -706,7 +752,8 @@ img { display:block; max-width:100%; }
   .hero-photo-badge { width:38%; left:-16px; bottom:-16px; }
   .hero-car-motif { width:64%; min-width:0; opacity:.06; }
   .pillars { grid-template-columns:repeat(2,1fr); }
-  .pillar-wide { grid-column:span 1; }
+  .pillar-card--wide { grid-column:span 2; }
+  .pillar-card--wide .pillar-media { aspect-ratio:20/9; }
   .events { grid-template-columns:repeat(2,1fr); }
   .event-wide { grid-column:span 2; flex-direction:column; }
   .event-wide .event-media { flex:0 0 auto; aspect-ratio:16/9; }
@@ -729,7 +776,7 @@ img { display:block; max-width:100%; }
   .nav { display:none; }
   .header-cta { display:none; }
   .nav-toggle { display:flex; }
-  .logo-plate img { height:32px; }
+  .logo-plate img { height:26px; }
   .logo-link img { height:36px; }
   .hero { padding:32px 0 44px; }
   .hero-title { font-size:52px; }
@@ -737,7 +784,8 @@ img { display:block; max-width:100%; }
   .hero-actions .btn { flex:1 1 auto; }
   .section-head h2 { font-size:26px; line-height:1.25; }
   .pillars { grid-template-columns:1fr; }
-  .pillar { min-height:190px; }
+  .pillar-card--wide { grid-column:span 1; }
+  .pillar-card--wide .pillar-media { aspect-ratio:4/3; }
   .events { grid-template-columns:1fr; }
   .event-wide { grid-column:span 1; }
   .special-body { padding:26px; }
