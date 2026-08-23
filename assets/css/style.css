@@ -465,7 +465,7 @@ img { display:block; max-width:100%; }
   position:relative;
   background:var(--surface);
   border:1px solid var(--line);
-  border-radius:var(--radius-md);
+  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%);
   overflow:hidden;
   display:flex;
   flex-direction:column;
@@ -615,7 +615,7 @@ img { display:block; max-width:100%; }
 .mosaic-tile {
   position:relative;
   margin:0;
-  border-radius:var(--radius-md);
+  clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%);
   overflow:hidden;
 }
 .mosaic-big { grid-row:span 2; }
@@ -662,7 +662,7 @@ img { display:block; max-width:100%; }
 
 /* ============ Wall / Facebook ============ */
 .wall { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
-.wall-post { background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-md); overflow:hidden; padding:18px 18px 0; }
+.wall-post { background:var(--surface); border:1px solid var(--line); border-top:3px solid var(--orange); clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%); overflow:hidden; padding:18px 18px 0; }
 .wall-head { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
 .wall-avatar {
   width:34px; height:34px; border-radius:50%;
