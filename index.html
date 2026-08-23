@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Music Bar Bourák – hudba, zábava a sport</title>
-<meta name="description" content="Music Bar Bourák: pivo, drinky, chytrý kvíz, živá hudba, sportovní přenosy a soukromé akce. Praha 11 – Chodov.">
+<title>Music Bar Bourák – hudba, drinky a zábava v Praze 11</title>
+<meta name="description" content="Music Bar Bourák: pivo, drinky, chytrý kvíz, živá hudba a soukromé akce. Praha 11 – Chodov.">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -19,12 +19,27 @@
       <a href="#akce">Akce</a>
       <a href="#napoje">Nápoje</a>
       <a href="#prostory">Prostory</a>
-      <a href="#sluzby">Služby</a>
       <a href="#kontakt">Kontakt</a>
     </nav>
     <div class="header-cta">
       <a class="btn btn-outline-dark" href="napoje.html">Nápojový lístek</a>
       <a class="btn btn-primary" href="#kontakt">Rezervace</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="mobilePanel" aria-label="Otevřít menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-panel" id="mobilePanel">
+    <div class="wrap mobile-panel-inner">
+      <a class="nav-link active" href="#uvod">Úvod</a>
+      <a class="nav-link" href="#akce">Akce</a>
+      <a class="nav-link" href="#napoje">Nápoje</a>
+      <a class="nav-link" href="#prostory">Prostory</a>
+      <a class="nav-link" href="#kontakt">Kontakt</a>
+      <div class="mobile-panel-cta">
+        <a class="btn btn-outline-dark" href="napoje.html">Lístek</a>
+        <a class="btn btn-primary" href="#kontakt">Rezervace</a>
+      </div>
     </div>
   </div>
 </header>
@@ -33,21 +48,32 @@
 
   <!-- HERO -->
   <section class="hero">
+    <svg class="hero-car-motif" viewBox="0 0 240 100" fill="none" stroke-width="3" aria-hidden="true" focusable="false">
+      <path d="M10,72 L10,55 Q10,45 20,42 L54,42 Q66,20 92,18 L148,18 Q174,20 186,42 L220,42 Q230,45 230,58 L230,72"/>
+      <line x1="10" y1="72" x2="230" y2="72"/>
+      <circle cx="52" cy="74" r="15"/>
+      <circle cx="182" cy="74" r="15"/>
+      <line x1="66" y1="42" x2="80" y2="20"/>
+      <line x1="150" y1="20" x2="164" y2="42"/>
+    </svg>
     <div class="wrap hero-grid">
       <div class="hero-copy">
         <p class="eyebrow">Hudební bar &middot; Praha 11 – Chodov</p>
         <h1 class="display hero-title">Music Bar<br><span class="accent">Bourák</span></h1>
-        <p class="lead">Místo, kde žije hudba, zábava a sport. Pivo, drinky, chytrý kvíz, živé kapely a soukromé akce pod jednou střechou.</p>
+        <p class="lead">Místo, kde žije hudba a zábava. Pivo, drinky, chytrý kvíz, živé kapely a soukromé akce pod jednou střechou.</p>
         <ul class="feature-list">
           <li><span class="dot" aria-hidden="true"></span>Skvělé drinky &amp; pivo</li>
           <li><span class="dot" aria-hidden="true"></span>Chytrý kvíz</li>
           <li><span class="dot" aria-hidden="true"></span>Živé kapely a DJ</li>
-          <li><span class="dot" aria-hidden="true"></span>Sportovní přenosy</li>
           <li><span class="dot" aria-hidden="true"></span>Soukromé akce</li>
         </ul>
         <div class="hero-actions">
           <a class="btn btn-primary btn-lg" href="#kontakt">Rezervovat stůl</a>
-          <a class="btn btn-outline btn-lg" href="#akce">Aktuální akce</a>
+          <a class="btn btn-outline btn-lg" href="#akce">Co se děje</a>
+        </div>
+        <div class="hero-links">
+          <a class="link-arrow" href="napoje.html">Nápojový lístek →</a>
+          <a class="link-arrow" href="#akce-na-miru">Soukromé akce →</a>
         </div>
       </div>
       <div class="hero-visual">
@@ -57,7 +83,6 @@
         <div class="hero-photo-badge">
           <img src="assets/images/photos/shots-tray.jpg" alt="Signature shoty Bourák" width="900" height="1600" loading="lazy">
         </div>
-        <div class="hero-tag">🍺 Živě každý večer</div>
       </div>
     </div>
   </section>
@@ -67,7 +92,7 @@
     <div class="wrap">
       <div class="section-head">
         <p class="eyebrow">Co u nás najdeš</p>
-        <h2 class="display">Pivo. Drinky. Hudba. Zábava.</h2>
+        <h2 class="headline">Pivo. Drinky. Hudba. Zábava.</h2>
       </div>
       <div class="pillars">
         <a class="pillar pillar-photo" href="napoje.html" style="background-image:url('assets/images/photos/bar-counter.jpg')">
@@ -79,12 +104,8 @@
         <a class="pillar pillar-solid" href="#akce">
           <div class="pillar-body"><h3 class="cond">Chytrý kvíz</h3><p>Zábava, napětí a skvělé ceny.</p></div>
         </a>
-        <a class="pillar pillar-photo" href="#akce" style="background-image:url('assets/images/photos/quiz-crowd.jpg')">
+        <a class="pillar pillar-wide pillar-photo" href="#akce" style="background-image:url('assets/images/photos/quiz-crowd.jpg')">
           <div class="pillar-body"><h3 class="cond">Hudba &amp; párty</h3><p>Živé kapely, DJ i tanec do rána.</p></div>
-        </a>
-        <a class="pillar pillar-dark" href="#akce">
-          <div class="pillar-icon" aria-hidden="true">📺</div>
-          <div class="pillar-body"><h3 class="cond">Sportovní přenosy</h3><p>Velké zápasy na velkých obrazovkách.</p></div>
         </a>
         <a class="pillar pillar-photo" href="#komunita" style="background-image:url('assets/images/photos/quiz-winners.jpg')">
           <div class="pillar-body"><h3 class="cond">Soukromé akce</h3><p>Oslavy, firemní večírky a víc.</p></div>
@@ -99,7 +120,7 @@
       <div class="section-head section-head-row">
         <div>
           <p class="eyebrow">Program</p>
-          <h2 class="display">Co se děje tenhle týden</h2>
+          <h2 class="headline">Co se děje tenhle týden</h2>
         </div>
         <a class="link-arrow" href="https://www.facebook.com/musicbarbourak/" target="_blank" rel="noopener">Všechny akce na Facebooku →</a>
       </div>
@@ -128,12 +149,12 @@
         </article>
 
         <article class="event event-solid">
-          <div class="event-icon" aria-hidden="true">⚽</div>
-          <div class="event-date-badge"><span class="day">So</span><span class="cond">16:20</span></div>
+          <div class="event-icon" aria-hidden="true">🎯</div>
+          <div class="event-date-badge"><span class="day">So</span><span class="cond">16:00</span></div>
           <div class="event-body">
-            <span class="tag tag-sport">Sport</span>
-            <h3 class="cond">Sportovní přenos</h3>
-            <p>Velkoplošná projekce na baru.</p>
+            <span class="tag tag-akce">Turnaj</span>
+            <h3 class="cond">Šipkový turnaj</h3>
+            <p>Přijď si zahrát a poměř mušku s ostatními hosty.</p>
             <a class="link-arrow" href="#kontakt">Více info →</a>
           </div>
         </article>
@@ -158,7 +179,7 @@
   <section class="section section-light special" id="special">
     <div class="wrap">
       <div class="special-card">
-        <div class="special-media"><img src="assets/images/photos/shots-tray.jpg" alt="Bourák Signature Shot" loading="lazy" width="900" height="1600"></div>
+        <div class="special-media cut-lg"><img src="assets/images/photos/shots-tray.jpg" alt="Bourák Signature Shot" loading="lazy" width="900" height="1600"></div>
         <div class="special-body">
           <p class="eyebrow eyebrow-onlight">Speciál tohoto týdne</p>
           <h2 class="cond">Bourák Signature Shot</h2>
@@ -176,7 +197,7 @@
       <div class="section-head section-head-row">
         <div>
           <p class="eyebrow">Nápojový lístek</p>
-          <h2 class="display">Na co máš dnes chuť?</h2>
+          <h2 class="headline">Na co máš dnes chuť?</h2>
         </div>
         <a class="link-arrow" href="napoje.html">Zobrazit celý lístek →</a>
       </div>
@@ -190,42 +211,42 @@
 
       <div class="menu-grid">
         <div class="menu-card">
-          <div class="menu-card-head"><span class="menu-ico" aria-hidden="true">🍺</span><h3 class="cond">Piva</h3></div>
-          <ul>
-            <li><span>Radegast Ryze Hořká 0,5l</span><b>55 Kč</b></li>
-            <li><span>Staropramen Ležák 0,5l</span><b>55 Kč</b></li>
-            <li><span>Kozel Premium 0,5l</span><b>52 Kč</b></li>
-            <li><span>Birell (nealko) 0,5l</span><b>45 Kč</b></li>
+          <div class="menu-card-head"><h3 class="cond">Piva</h3></div>
+          <ul class="menu-list">
+            <li><span class="menu-name">Radegast Ryze Hořká 0,5l</span><span class="menu-leader" aria-hidden="true"></span><span class="menu-price">55 Kč</span></li>
+            <li><span class="menu-name">Staropramen Ležák 0,5l</span><span class="menu-leader" aria-hidden="true"></span><span class="menu-price">55 Kč</span></li>
+            <li><span class="menu-name">Kozel Premium 0,5l</span><span class="menu-leader" aria-hidden="true"></span><span class="menu-price">52 Kč</span></li>
+            <li><span class="menu-name">Birell (nealko) 0,5l</span><span class="menu-leader" aria-hidden="true"></span><span class="menu-price">45 Kč</span></li>
           </ul>
           <a class="link-arrow" href="napoje.html#piva">Více piv →</a>
         </div>
         <div class="menu-card">
-          <div class="menu-card-head"><span class="menu-ico" aria-hidden="true">🍹</span><h3 class="cond">Koktejly</h3></div>
-          <ul>
-            <li><span>Bourák Mojito</span><b>169 Kč</b></li>
-            <li><span>Bourák Sunset</span><b>169 Kč</b></li>
-            <li><span>Cuba Libre</span><b>149 Kč</b></li>
-            <li><span>Moscow Mule</span><b>159 Kč</b></li>
+          <div class="menu-card-head"><h3 class="cond">Koktejly</h3></div>
+          <ul class="menu-list">
+            <li><span class="menu-name">Bourák Mojito</span><span class="menu-leader" aria-hidden="true"></span><span class="menu-price">169 Kč</span></li>
+            <li><span class="menu-name">Bourák Sunset</span><span class="menu-leader" aria-hidden="true"></span><span class="menu-price">169 Kč</span></li>
+            <li><span class="menu-name">Cuba Libre</span><span class="menu-leader" aria-hidden="true"></span><span class="menu-price">149 Kč</span></li>
+            <li><span class="menu-name">Moscow Mule</span><span class="menu-leader" aria-hidden="true"></span><span class="menu-price">159 Kč</span></li>
           </ul>
           <a class="link-arrow" href="napoje.html#koktejly">Více drinků →</a>
         </div>
         <div class="menu-card">
-          <div class="menu-card-head"><span class="menu-ico" aria-hidden="true">🥃</span><h3 class="cond">Destiláty</h3></div>
-          <ul>
-            <li><span>Captain Morgan 0,04l</span><b>149 Kč</b></li>
-            <li><span>Jack Daniel's 0,04l</span><b>149 Kč</b></li>
-            <li><span>Beefeater Gin 0,04l</span><b>139 Kč</b></li>
-            <li><span>Hendrick's Gin 0,04l</span><b>159 Kč</b></li>
+          <div class="menu-card-head"><h3 class="cond">Destiláty</h3></div>
+          <ul class="menu-list">
+            <li><span class="menu-name">Captain Morgan 0,04l</span><span class="menu-leader" aria-hidden="true"></span><span class="menu-price">149 Kč</span></li>
+            <li><span class="menu-name">Jack Daniel's 0,04l</span><span class="menu-leader" aria-hidden="true"></span><span class="menu-price">149 Kč</span></li>
+            <li><span class="menu-name">Beefeater Gin 0,04l</span><span class="menu-leader" aria-hidden="true"></span><span class="menu-price">139 Kč</span></li>
+            <li><span class="menu-name">Hendrick's Gin 0,04l</span><span class="menu-leader" aria-hidden="true"></span><span class="menu-price">159 Kč</span></li>
           </ul>
           <a class="link-arrow" href="napoje.html#rum">Více destilátů →</a>
         </div>
         <div class="menu-card">
-          <div class="menu-card-head"><span class="menu-ico" aria-hidden="true">🥤</span><h3 class="cond">Nealko</h3></div>
-          <ul>
-            <li><span>Domácí limonáda 0,4l</span><b>69 Kč</b></li>
-            <li><span>Red Bull 0,25l</span><b>79 Kč</b></li>
-            <li><span>Cappy džus 0,2l</span><b>45 Kč</b></li>
-            <li><span>Aquila voda 0,33l</span><b>39 Kč</b></li>
+          <div class="menu-card-head"><h3 class="cond">Nealko</h3></div>
+          <ul class="menu-list">
+            <li><span class="menu-name">Domácí limonáda 0,4l</span><span class="menu-leader" aria-hidden="true"></span><span class="menu-price">69 Kč</span></li>
+            <li><span class="menu-name">Red Bull 0,25l</span><span class="menu-leader" aria-hidden="true"></span><span class="menu-price">79 Kč</span></li>
+            <li><span class="menu-name">Cappy džus 0,2l</span><span class="menu-leader" aria-hidden="true"></span><span class="menu-price">45 Kč</span></li>
+            <li><span class="menu-name">Aquila voda 0,33l</span><span class="menu-leader" aria-hidden="true"></span><span class="menu-price">39 Kč</span></li>
           </ul>
           <a class="link-arrow" href="napoje.html#nealko">Více nealka →</a>
         </div>
@@ -244,7 +265,7 @@
   <!-- SOUKROMÉ AKCE CTA (tmavý akcentní pás) -->
   <section class="section" id="akce-na-miru">
     <div class="wrap">
-      <div class="cta-banner">
+      <div class="cta-banner cut-lg">
         <div>
           <p class="eyebrow eyebrow-onlight">Soukromé akce</p>
           <h2 class="cond">Chceš uspořádat vlastní akci?</h2>
@@ -260,10 +281,10 @@
     <div class="wrap">
       <div class="section-head">
         <p class="eyebrow">Prostory &amp; zážitky</p>
-        <h2 class="display">Nahlédni k nám dovnitř</h2>
+        <h2 class="headline">Nahlédni k nám dovnitř</h2>
       </div>
       <div class="mosaic">
-        <figure class="mosaic-tile mosaic-big">
+        <figure class="mosaic-tile mosaic-big cut-lg">
           <img src="assets/images/photos/bar-counter.jpg" alt="Bar a výčep Music Bar Bourák" loading="lazy" width="900" height="1600">
           <figcaption><span class="cond">Bar &amp; atmosféra</span></figcaption>
         </figure>
@@ -296,25 +317,26 @@
     <div class="wrap">
       <div class="section-head section-head-row">
         <div>
-          <p class="eyebrow">Komunita</p>
-          <h2 class="display">Zeď z Facebooku</h2>
+          <p class="eyebrow">Co je u nás nového</p>
+          <h2 class="headline">Novinky z Bouráku</h2>
+          <p class="komunita-note">Připravujeme živé propojení s Facebookem — zatím ukázka toho, co tu brzy uvidíte.</p>
         </div>
         <a class="link-arrow" href="https://www.facebook.com/musicbarbourak/" target="_blank" rel="noopener">Sledovat na Facebooku →</a>
       </div>
       <div class="wall">
         <article class="wall-post">
           <div class="wall-head"><span class="wall-avatar cond">MB</span><div><b>Music Bar Bourák</b><span>před 2 dny</span></div></div>
-          <p>Díky všem za parádní kvíz! Bylo narváno až do poslední otázky 🧠</p>
+          <p>Díky všem za parádní kvíz! Bylo narváno až do poslední otázky.</p>
           <img src="assets/images/photos/quiz-crowd.jpg" alt="" loading="lazy" width="900" height="1600">
         </article>
         <article class="wall-post">
           <div class="wall-head"><span class="wall-avatar cond">MB</span><div><b>Music Bar Bourák</b><span>před 4 dny</span></div></div>
-          <p>Gratulujeme vítězům a díky všem, kdo dorazili! Příště zase v plné sestavě 🏆</p>
+          <p>Gratulujeme vítězům a díky všem, kdo dorazili! Příště zase v plné sestavě.</p>
           <img src="assets/images/photos/quiz-winners.jpg" alt="" loading="lazy" width="1080" height="608">
         </article>
         <article class="wall-post">
           <div class="wall-head"><span class="wall-avatar cond">MB</span><div><b>Music Bar Bourák</b><span>před týdnem</span></div></div>
-          <p>Nový drink na baru — pojďte ochutnat, než dojde 🍹</p>
+          <p>Nový drink na baru — pojďte ochutnat, než dojde.</p>
           <img src="assets/images/photos/shots-tray.jpg" alt="" loading="lazy" width="900" height="1600">
         </article>
       </div>
@@ -326,7 +348,7 @@
     <div class="wrap">
       <div class="section-head">
         <p class="eyebrow">Kontakt &amp; rezervace</p>
-        <h2 class="display">Přijď na drink, nebo si rezervuj stůl</h2>
+        <h2 class="headline">Přijď na drink, nebo si rezervuj stůl</h2>
       </div>
 
       <div class="contact-grid">
@@ -394,11 +416,9 @@
     <div class="wrap services-strip-inner">
       <span class="services-strip-label cond">Praktické služby</span>
       <div class="services-strip-list">
-        <span>📦 Zásilkovna</span>
-        <span>📮 PPL Parcelshop</span>
-        <span>🚚 DPD / AlzaBox</span>
-        <span>📺 Sportovní přenosy</span>
-        <span>🗓️ Rezervace akcí</span>
+        <span>Zásilkovna</span>
+        <span>PPL Parcelshop</span>
+        <span>DPD / AlzaBox</span>
       </div>
     </div>
   </section>
@@ -411,7 +431,7 @@
       <a class="logo-plate" href="#uvod" aria-label="Music Bar Bourák">
         <img src="assets/images/logo.webp" alt="Music Bar Bourák" width="180" height="43" loading="lazy">
       </a>
-      <p class="tagline">Místo, kde žije hudba, zábava a sport. Praha 11 – Chodov.</p>
+      <p class="tagline">Místo, kde žije hudba a zábava. Praha 11 – Chodov.</p>
     </div>
     <div>
       <h4 class="cond">Rychlé odkazy</h4>
@@ -437,15 +457,10 @@
   </div>
   <div class="wrap footer-bottom">
     <span>© Music Bar Bourák 2026. Všechna práva vyhrazena.</span>
-    <span>Vytvořeno s ❤ v Music Baru</span>
+    <span>Vytvořeno v Music Baru</span>
   </div>
 </footer>
 
-<nav class="mobile-nav" aria-label="Mobilní navigace">
-  <a class="active" href="#akce"><span aria-hidden="true">🗓️</span>Akce</a>
-  <a href="#napoje"><span aria-hidden="true">🍹</span>Nápoje</a>
-  <a href="#prostory"><span aria-hidden="true">🖼️</span>Prostory</a>
-  <a href="#kontakt"><span aria-hidden="true">⌖</span>Kontakt</a>
-</nav>
+<script src="assets/js/main.js"></script>
 </body>
 </html>
